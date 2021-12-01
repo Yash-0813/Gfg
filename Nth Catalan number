@@ -1,0 +1,16 @@
+class Solution:
+    #Function to find the nth catalan number.
+    def findCatalan(self,n):
+        #return the nth Catalan number.
+        return self.nthcatalan(n,{})
+    def nthcatalan(self,n,memo):
+        if(n<=1):
+            return 1
+        ways=0
+        currentkey=n
+        if currentkey in memo:
+            return memo[currentkey]
+        for i in range(0,n):
+            ways+=self.nthcatalan(i,memo)*self.nthcatalan(n-i-1,memo)
+        memo[currentkey]=ways
+        return memo[currentkey]
