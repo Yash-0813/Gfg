@@ -1,0 +1,10 @@
+class Solution:
+    def toLower (ob, S):
+        # code here 
+        l=""
+        for i in S:
+            if i.isupper():
+                l+=chr(ord(i)+32)
+            else:
+                l+=i
+        return l
