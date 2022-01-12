@@ -1,0 +1,8 @@
+class Solution:
+    def findExtra(self,a,b,n):
+        #add code here
+        m=len(set(a))
+        b=set(b)
+        for i in range(m):
+                if(a[i] not in b):
+                    return i
