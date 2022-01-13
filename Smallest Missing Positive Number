@@ -1,0 +1,11 @@
+class Solution:
+    
+    #Function to find the smallest positive number missing from the array.
+    def missingNumber(self,arr,n):
+        #Your code here
+        arr.sort()
+        smallpos=1
+        for i in range(n):
+            if(smallpos==arr[i]):
+                smallpos+=1
+        return smallpos
