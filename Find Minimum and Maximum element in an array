@@ -1,0 +1,6 @@
+def getMinMax( a, n):
+    small=min(a)
+    big=max(a)
+    return small,big
+    
+    
