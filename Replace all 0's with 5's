@@ -1,0 +1,11 @@
+# Function should return an integer value
+def convertFive(n):
+    # Code here
+    s=str(n)
+    tmp=""
+    for i in range(len(s)):
+        if(s[i]=="0"):
+            tmp+="5"
+        else:
+            tmp+=s[i]
+    return int(tmp)
