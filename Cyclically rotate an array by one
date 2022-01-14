@@ -1,0 +1,5 @@
+def rotate( arr, n):
+    arr.insert(0,arr[n-1])
+    arr.pop()
+    return arr
+    
