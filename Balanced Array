@@ -1,0 +1,11 @@
+class Solution:
+    def minValueToBalance(self,a,n):
+        #code here.
+        sum1=sum2=0
+        tmp=a[:n//2]
+        tmp1=a[n//2:n]
+        for i in tmp:
+            sum1+=i
+        for i in tmp1:
+            sum2+=i
+        return abs(sum2-sum1)
