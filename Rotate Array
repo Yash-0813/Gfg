@@ -1,0 +1,9 @@
+class Solution:
+    #Function to rotate an array by d elements in counter-clockwise direction. 
+    def rotateArr(self,A,D,N):
+        #Your code here
+        temp = [A[i] for i in range(D)]
+        for t in range(D):
+           del A[0]
+        A += temp
+        return A
