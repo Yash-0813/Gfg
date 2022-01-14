@@ -1,0 +1,10 @@
+def multiply (arr, n) : 
+    #Complete the function
+    tmp1=arr[:n//2]
+    tmp2=arr[n//2:n]
+    sum1=sum2=0
+    for i in tmp1:
+        sum1+=i
+    for i in tmp2:
+        sum2+=i
+    return sum1*sum2
