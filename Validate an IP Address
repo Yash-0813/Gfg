@@ -1,0 +1,20 @@
+def isValid(s):
+    #code here
+    k=s.split('.')
+    c=0
+    if len(k)==4:
+        
+        for i in k:
+            try:
+                a=int(i)
+                if a>=0 and a<=255 and len(i)<4 and len(str(a))==len(i):
+                    pass
+                    c+=1
+                else:
+                    break
+            except:
+                break
+    if c==4:
+        return(1)
+    else:
+        return(0)
