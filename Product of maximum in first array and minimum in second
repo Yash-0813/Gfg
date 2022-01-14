@@ -1,0 +1,6 @@
+class Solution:
+    def find_multiplication (self, arr, brr, n, m) : 
+        #Complete the function
+        tmp=max(arr)
+        tmp1=min(brr)
+        return tmp*tmp1
