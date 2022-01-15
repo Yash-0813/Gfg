@@ -1,0 +1,9 @@
+class Solution:
+    def removeChars (ob, string1, string2):
+        # code here 
+        s=""
+        for i in range(len(string1)):
+            if(string1[i] not in string2):
+                s+=string1[i]
+                
+        return s
