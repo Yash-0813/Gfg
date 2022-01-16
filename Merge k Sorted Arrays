@@ -1,0 +1,11 @@
+class Solution:
+    #Function to merge k sorted arrays.
+    def mergeKArrays(self, arr, K):
+        # code here
+        # return merged list
+        l=[]
+        for i in arr:
+            for j in i:
+                l.append(j)
+        l.sort()
+        return l
