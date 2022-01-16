@@ -1,0 +1,20 @@
+class Solution:
+    ##Complete this function
+    def searchInSorted(self,arr, N, K):
+        #Your code here\
+        low = 0 # starting index
+        high = N-1 # end Indx
+       
+        while low <= high:
+            mid = low +(high-low)//2  #mid index
+           
+            if arr[mid] == K:
+               return 1
+           
+            elif K < arr[mid]:
+               high = mid-1
+           
+            else:
+               low = mid+1
+       
+        return -1
