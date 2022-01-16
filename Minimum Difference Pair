@@ -1,0 +1,10 @@
+class Solution:
+	def minimum_difference(self, nums):
+		# Code here
+		nums.sort()
+		tmp=abs(nums[1]-nums[0])
+		for i in range(1,len(nums)-1):
+		    if(abs(nums[i+1]-nums[i])<tmp):
+		        tmp=min(tmp,abs(nums[i+1]-nums[i]))
+		return tmp
+		    
