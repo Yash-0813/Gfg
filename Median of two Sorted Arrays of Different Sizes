@@ -1,0 +1,16 @@
+class Solution:
+    def MedianOfArrays(self, array1, array2):
+            #code here
+            m=len(array1)
+            n=len(array2)
+            c=array1+array2
+            c.sort()
+            x=(m+n)//2
+            if (m+n)%2==0:
+                ans=(c[x]+c[x-1])
+                if ans%2==0:
+                    return ans//2
+                else:
+                    return ans/2
+            else:
+                return (c[x])
