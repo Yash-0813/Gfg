@@ -1,0 +1,16 @@
+class Solution:
+    #Complete this function
+    # Function to find the maximum index difference.
+    def maxIndexDiff(self,A, N): 
+        ##Your code here
+        j=N-1;
+        maxval= 0;
+        while(j>0):
+            i=0
+            while(i<j):
+                if(j>i and A[j]>=A[i]):
+                    maxval=max(maxval,j-i)
+                    break
+                i+=1
+            j-=1
+        return maxval
