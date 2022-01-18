@@ -1,0 +1,9 @@
+
+class Solution:
+    def merge(self, arr1, arr2, n, m): 
+        # code here
+        for i in arr2:
+            arr1.append(i)
+        arr1.sort()
+        arr2.clear()
+        return arr1
