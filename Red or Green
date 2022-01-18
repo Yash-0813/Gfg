@@ -1,0 +1,13 @@
+class Solution:
+    def RedOrGreen(self,N,S):
+        #code here
+        r, g = 0, 0
+        for i in range(N):
+            if S[i] == 'G':
+                g += 1
+            else:
+                r += 1
+        if r<=g :
+            return r
+        else:
+            return g
