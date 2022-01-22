@@ -1,0 +1,15 @@
+class Solution:	
+	def binarysearch(self, arr, n, k):
+		# code here
+		start=0
+		end=n-1
+		mid=start+(end-start)//2
+		while(start<=end):
+		    if(arr[mid]==k):
+		      return mid
+		    elif(arr[mid]<k):
+		        start=mid+1
+		    else:
+		        end=mid-1
+		    mid=start+(end-start)//2
+		return -1
