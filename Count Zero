@@ -1,0 +1,8 @@
+import math
+class Solution:
+    def findCountUpto (ob, d):
+        # code here 
+        count=0
+        for i in range(d+1):
+             count+=(9*int(math.pow(10,i-1)-int(math.pow(9,i-1))))
+        return count
