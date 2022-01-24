@@ -1,0 +1,11 @@
+class Solution:
+
+	
+	def removeDuplicates(self,str):
+	    # code here
+	    tmp=""
+	    while(len(str)!=0):
+	        tmp+=str[0]
+	        str=str.replace(str[0],'')
+	    return tmp
+	    
