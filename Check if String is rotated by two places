@@ -1,0 +1,19 @@
+
+class Solution:
+    #Function to check if a string can be obtained by rotating
+    #another string by exactly 2 places.
+    def isRotated(self,str1,str2):
+        #code here
+        if(len(str1)!=len(str2)):
+            return False
+        if(len(str2)<2):
+            return (str1==str2)
+        aclock=""
+        clock=""
+        
+        l=len(str2)
+        
+        aclock=aclock+str1[l-2:]+str1[0:l-2]
+        clock=clock=str1[2:]+str1[0:2]
+        return aclock== str2  or clock==str2
+        
