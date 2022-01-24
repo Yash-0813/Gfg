@@ -1,0 +1,19 @@
+class Solution:
+	def maxSubstring(self, S):
+		# code here
+		l = len(S)
+        cur_val = 0
+        max_val = -1
+        nzero = 0
+        none = 0
+        for i in range(l):
+            if S[i] == '0':
+                nzero+=1
+            else:
+                none+=1
+            cur_val = nzero-none
+            max_val = max(max_val, cur_val)
+            if cur_val<0:
+                 none=0
+                 nzero = 0
+        return max_val
