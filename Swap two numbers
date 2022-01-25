@@ -1,0 +1,9 @@
+class Solution:
+    def get(self, a, b):
+        #code here
+        l=[]
+        a,b=b,a
+        l.append(a)
+        l.append(b)
+        return l
+        
