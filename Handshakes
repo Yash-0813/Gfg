@@ -1,0 +1,11 @@
+class Solution:
+    def count(self, N):
+        # code here
+        if(N%2==1):
+            return 0
+        elif(N==0):
+            return 1
+        sum=0
+        for i in range(0,N,2):
+            sum+=self.count(i)*self.count(N-2-i)
+        return sum
