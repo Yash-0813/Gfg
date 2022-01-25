@@ -1,0 +1,16 @@
+#code
+def geekonacci(a,b,c,n):
+    if(n==1):
+        return a
+    if(n==2):
+        return b
+    if(n==3):
+        return c
+    
+    tmp=geekonacci(a,b,c,n-1)+geekonacci(a,b,c,n-2)+geekonacci(a,b,c,n-3)
+    return tmp
+t=int(input())
+for i in range(t):
+    a,b,c,n=list(map(int,input().split()))
+    ans=geekonacci(a,b,c,n)
+    print(ans)
