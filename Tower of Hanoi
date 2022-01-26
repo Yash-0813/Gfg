@@ -1,0 +1,9 @@
+class Solution:
+    def toh(self, N, fromm, to, aux):
+        # Your code here
+        if N== 0:
+            return 0
+        c1=self.toh(N-1, fromm,aux,to)
+        print("move disk",N,"from rod",fromm,"to rod",to)
+        c2=self.toh(N-1, aux, to, fromm)
+        return c1+c2+1
