@@ -1,0 +1,12 @@
+
+class Solution:
+	def countOddEven(self, arr, n):
+		#Code here
+		ceven=0
+        codd=0
+        for i in arr:
+            if i%2==0:
+                ceven+=1
+            else:
+                codd+=1
+        print(codd,ceven)
