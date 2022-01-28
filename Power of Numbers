@@ -1,0 +1,14 @@
+class Solution:
+    #Complete this function
+    def power(self,N,R):
+        #Your code here
+        if R==0:
+           return 1
+        if R==1:
+            return N
+        tmp=self.power(N,R//2)
+        tmp2=(tmp*tmp)%1000000007
+        
+        if(R%2!=0):
+           tmp2=(tmp2*N)%1000000007
+        return tmp2
