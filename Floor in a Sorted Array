@@ -1,0 +1,9 @@
+    def findFloor(self,A,N,X):
+        #Your code here
+        c=-1
+        for i in range(N):
+           if A[i] > X:
+               return c
+           else:
+               c=i
+        return c
