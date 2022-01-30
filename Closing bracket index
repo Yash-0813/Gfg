@@ -1,0 +1,15 @@
+
+class Solution:
+    def closing (self,s, pos):
+        # your code here
+        count=0
+        s1 = [x for x in s if x is '[' or ']']
+        x = len(s)
+        for i in range(pos,x):
+           if s1[i] == '[':
+               count+=1
+           
+           if s1[i] == "]":
+               count-=1
+               if count==0:
+                   return i
