@@ -1,0 +1,19 @@
+class Solution:
+    def minimumNumberOfSwaps(self,S):
+        # code here 
+        l=0
+        r=0
+        swap=0
+        for i in range(len(S)):
+            if(S[i]=='['):
+                if(r>l):
+                    swap+=r-l
+                    l+=1
+                else:
+                    l+=1
+            else:
+                if(l==0):
+                    r+=1
+                else:
+                    l-=1
+        return swap
