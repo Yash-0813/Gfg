@@ -1,0 +1,14 @@
+#code
+t=int(input())
+for i in range(t):
+   N,K=map(int,input().split())
+   a =[int(a) for a in input().split()]
+   b=set(a)
+   c=list(b)
+   c.sort(reverse=True)
+   if(len(c)<K):
+       print(-1)
+   else:
+       for x in range(K):
+           print(c[x],end=" ")
+       print("")     
