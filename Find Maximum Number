@@ -1,0 +1,6 @@
+class Solution:
+    def findMax(self, N):
+        # code here
+        l=list(N)
+        l.sort(reverse=True)
+        return ''.join(l)
