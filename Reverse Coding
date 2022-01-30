@@ -1,0 +1,8 @@
+class Solution:
+    def revCoding(self, n, m):
+        # code here
+        sum=n*(n+1)//2
+        if(sum==m):
+            return 1
+        else:
+            return 0
