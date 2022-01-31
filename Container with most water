@@ -1,0 +1,16 @@
+def maxArea(A,le):
+    #code here
+    height=A
+    j=len(height)-1
+    area=0
+    i=0
+    while(i<j):
+        area1=(j-i)*min(height[i],height[j])
+        area=max(area,area1)
+        a=height[j]
+        b=height[i]
+        if(a<b):
+            j-=1
+        else:
+            i+=1
+    return area
