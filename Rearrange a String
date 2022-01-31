@@ -1,0 +1,16 @@
+class Solution:
+    def arrangeString(self, s):
+        # code here
+        l=list()
+        sum= 0
+        tmp= ""
+        for i in s:
+            if i.isalpha():
+                l.append(i)
+            elif i.isdigit():
+                sum+=int(i)
+        l.sort()
+        for i in l:
+            tmp+=i
+        tmp+=str(sum)
+        return (tmp)
