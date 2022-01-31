@@ -1,0 +1,7 @@
+class Solution:
+    def search(self, A, N):
+        # your code here
+        tmp=0
+        for i in range(N):
+            tmp^=A[i]
+        return tmp
