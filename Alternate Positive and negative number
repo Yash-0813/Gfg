@@ -1,0 +1,19 @@
+class Solution:
+    def rearrange(self,arr, n):
+        # code here
+           pos = []
+           neg = []
+           ans = []
+           for i in arr:
+               if(i>=0):
+                   pos.append(i)
+               else:
+                   neg.append(i)
+           for i in range(n):
+               if(i<len(pos)):
+                   ans.append(pos[i])
+               if(i<len(neg)):
+                   ans.append(neg[i])
+           for i in range(len(ans)):
+               arr[i] = ans[i]
+           return ans
