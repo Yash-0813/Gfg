@@ -1,0 +1,27 @@
+class Solution:
+
+    #Function to perform case-specific sorting of strings.
+    def caseSort(self,s,n):
+        #code here
+        llist = []
+        ulist = []
+        for i in s:
+           if i.isupper():
+               ulist.append(i)
+           else:
+               llist.append(i)
+        llist.sort()
+        ulist.sort()
+        c1 = 0
+        c2 = 0
+        tmp=''
+        for i in range(0,n):
+           if s[i].islower():
+               tmp+=llist[c1]
+               c1+=1
+           else:
+               tmp+=ulist[c2]
+               c2+=1
+           
+           
+        return tmp
