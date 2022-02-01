@@ -1,0 +1,8 @@
+max_count=0
+    temp=-1
+    for i in range(n):
+        c=0
+        if arr[i].count(1)>max_count:
+            max_count=arr[i].count(1)
+            temp=i
+    return temp
