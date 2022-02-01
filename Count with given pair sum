@@ -1,0 +1,13 @@
+class Solution:
+    def getPairsCount(self, arr, n, k):
+        # code here
+        count=0
+        dic={}
+        for i in range(0,n):
+           if k-arr[i] in dic.keys():
+               count+=dic[k-arr[i]]
+           if arr[i] in dic.keys():
+               dic[arr[i]]+=1
+           else:
+               dic[arr[i]]=1
+        return count
