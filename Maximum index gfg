@@ -1,0 +1,11 @@
+class Solution:
+    import math
+	def maxIndexDiff(self,arr,n):
+		#code here
+		m=0
+		for i in range(n):
+		    j=n-1
+		    while(i<j and arr[i]>arr[j]):
+		        j-=1
+		    m=max(m,j-i)
+		return m
