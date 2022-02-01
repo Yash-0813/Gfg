@@ -1,0 +1,13 @@
+class Solution:
+    def findKRotation(self,arr,  n):
+        # code here
+        start=0
+        end=n-1
+        while(start<=end):
+           mid=(start+(end-start)//2)
+           if(arr[mid]<=arr[(mid+n-1)%n] and arr[mid]<=arr[(mid+1)%n]):
+               return mid
+           elif(arr[end]<arr[mid]):
+               start=mid+1
+           else:
+               end=mid-1
