@@ -1,0 +1,10 @@
+    # Code here
+    sum=0
+    for i in range(n):
+        sum+=a[i]
+    sum1=0
+    for i in range(n-1):
+        sum1+=a[i]
+        if(sum1==(sum-sum1-a[i+1])):
+            return i+1
+    return -1
