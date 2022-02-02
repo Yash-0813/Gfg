@@ -1,0 +1,14 @@
+def findZeroes(arr, n, m) :
+    # code here
+    count=0
+    c=0
+    ans=0
+    for i in range(n):
+        if(arr[i]==0):
+            count+=1
+        while(count>m):
+            if(arr[c]==0):
+                count-=1
+            c+=1
+        ans=max(ans,i-c+1)
+    return ans
