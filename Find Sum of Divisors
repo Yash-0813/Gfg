@@ -1,0 +1,14 @@
+class Solution:
+    def sumOfDivisors(self, N):
+    	#code here 
+    	lst=[]
+        lst1=[]
+        for i in range(1,N+1):
+            if(N%i==0):
+                lst.append(i)
+        for i in lst:
+            for j in range(1,i+1):
+                if(i%j==0):
+                    lst1.append(j)
+
+        return sum(lst1)  
