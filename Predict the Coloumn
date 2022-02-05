@@ -1,0 +1,15 @@
+
+class Solution:
+    def columnWithMaxZeros(self,arr,N):
+        # code here
+        c=0
+        m=0
+        for i in range(N):
+            cc=0
+            for j in range(N):
+            
+                if(arr[j][i]==0):
+                    cc+=1
+            if(cc>c):
+                m,c=i,cc
+        return m
