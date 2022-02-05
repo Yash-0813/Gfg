@@ -1,0 +1,3 @@
+def num(arr, n, k):
+    # Code here
+    return str(arr).count(str(k))
