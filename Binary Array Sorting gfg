@@ -1,0 +1,5 @@
+class Solution:
+    def sortBinaryArray (self, arr, n):
+        # Your code here
+        arr.sort()
+        return arr
