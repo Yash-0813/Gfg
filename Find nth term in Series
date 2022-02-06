@@ -1,0 +1,4 @@
+class Solution:
+    def nthOfSeries (self, n):
+        # code here 
+        return 9+8*(n*n-1)
