@@ -1,0 +1,9 @@
+
+class Solution:
+    def getOddOccurrence(self, arr, n):
+        # code here
+        c=0
+        for i in range(n):
+           c=c^arr[i]
+           i+=1
+        return c 
