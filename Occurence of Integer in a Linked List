@@ -1,0 +1,9 @@
+class Solution:
+    def count(self, head, search_for):
+        # Code here
+        count=0
+        while(head!=None):
+            if(head.data==search_for):
+                count+=1
+            head=head.next
+        return count
