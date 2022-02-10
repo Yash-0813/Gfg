@@ -1,0 +1,32 @@
+from math import ceil
+'''
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+'''
+def deleteMid(head):
+    '''
+    head:  head of given linkedList
+    return: head of resultant llist
+    '''
+    dummy=head
+    count=0
+    while(dummy!=None):
+        count+=1
+        dummy=dummy.next
+    if(count%2!=0):
+        index=ceil(count/2)-2
+    else:
+        index=ceil(count/2)-1
+    tmp=head
+    head=tmp
+    i=0
+    while(index!=i):
+        tmp=tmp.next
+        i+=1
+        
+    tmp.next=tmp.next.next
+    return head
+    
+    
