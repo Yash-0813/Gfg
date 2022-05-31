@@ -1,0 +1,25 @@
+class Solution:
+    def fourSum(self, A, B):
+        # code here
+        len_A = len(A)
+        table = {}
+        
+        A = sorted(A)
+
+        answers = set([])
+        for i in range(len_A - 3):
+            for j in range(i + 1, len_A - 2):
+                k = j + 1
+                l = len_A - 1
+
+                while k < l:
+                    tmp_sum = A[i] + A[j] + A[k] + A[l]
+                    if tmp_sum == B:
+                        answers.add((A[i], A[j], A[k], A[l]))
+                        k += 1
+                    elif tmp_sum < B:
+                        k += 1
+                    else:
+                        l -= 1
+
+        return sorted(answers)
