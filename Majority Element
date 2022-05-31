@@ -1,0 +1,9 @@
+
+class Solution:
+    def majorityElement(self, A, N):
+        #Your code here
+        A.sort()
+        max=A[N//2]
+        if(A.count(max)>N/2):
+            return max
+        return -1
