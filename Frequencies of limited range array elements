@@ -1,0 +1,20 @@
+class Solution:
+    #Function to count the frequency of all elements from 1 to N in the array.
+    def frequencyCount(self, arr, N, P):
+        # code here
+        memo={}
+        
+        
+        for currentval in arr:
+            if currentval in memo:
+                memo[currentval]+=1
+            else:
+                memo[currentval]=1
+        j=0
+        for x in range(1,N+1):
+            if(x in memo):
+                arr[j]=memo[x]
+            else:
+                arr[j]=0
+            j+=1
+        return arr
