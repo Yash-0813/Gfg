@@ -1,0 +1,14 @@
+class Solution:
+    def Countpair (self, arr, n, sum) : 
+        #Complete the function
+        c=0
+        for i in arr:
+            for j in arr:
+                if(i==j):
+                    continue
+                if(i+j==sum):
+                    c+=1
+        if(c>=1):
+            return c//2
+        else:
+            return -1
