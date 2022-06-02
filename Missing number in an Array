@@ -1,0 +1,7 @@
+class Solution:
+    def MissingNumber(self,array,n):
+        # code here
+        pmcsum = n*(n+1)//2 
+        currentsum = sum(array)
+       
+        return pmcsum - currentsum
