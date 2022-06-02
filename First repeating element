@@ -1,0 +1,14 @@
+from collections import Counter
+
+class Solution:
+    
+    #Function to return the position of the first repeating element.
+    def firstRepeated(self,arr, n):
+        
+        #arr : given array
+        #n : size of the array
+        m=Counter(arr)
+        for i in arr:
+           if m[i]>1:
+               return arr.index(i)+1
+        return -1
