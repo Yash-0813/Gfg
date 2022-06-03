@@ -1,0 +1,24 @@
+#Function to merge two sorted linked list.
+def sortedMerge(l1, l2):
+    # code here
+    if l1 is None:
+        return l2
+    if l2 is None:
+        return l1
+    dummynode=Node(-101)
+    head=dummynode
+    while(l1 is not None and l2 is not None ):
+        if(l1.data<l2.data):
+            newNode=Node(l1.data)
+            dummynode.next=newNode
+            l1=l1.next
+        else:
+            newNode=Node(l2.data)
+            dummynode.next=newNode
+            l2=l2.next
+        dummynode=dummynode.next
+    if l1 is not None:
+        dummynode.next=l1
+    if l2 is not None:
+        dummynode.next=l2
+    return head.next
