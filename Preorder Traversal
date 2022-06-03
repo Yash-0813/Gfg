@@ -1,0 +1,9 @@
+def preorder(root):
+    if not root:
+        return []
+    tmp=[]
+    tmp.append(root.data)
+    tmp+=preorder(root.left)
+    tmp+=preorder(root.right)
+    return tmp
+   
