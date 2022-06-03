@@ -1,0 +1,8 @@
+class Solution:
+    def constructTree(self,post,n):
+        # code here
+        if(len(post)==0):
+            return
+        post.sort()
+        for x in post:
+            print(x,end=" ")
