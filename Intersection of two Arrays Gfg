@@ -1,0 +1,14 @@
+class Solution:
+    def NumberofElementsInIntersection(self,a, b, n, m):
+        #return: expected length of the intersection array.
+        
+        #code here
+        h = set()
+        for i in a:
+           h.add(i)
+        res = 0
+        for i in b:
+            if i in h:
+               res += 1
+               h.remove(i)
+        return res
