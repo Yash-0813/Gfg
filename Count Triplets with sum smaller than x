@@ -1,0 +1,16 @@
+class Solution:
+    def countTriplets(self, arr, n, sumo):
+        #code here
+        arr.sort()
+        count=0
+        for i in range(n):
+            start=i+1
+            end=n-1
+            while(start<end):
+                if(arr[i]+arr[start]+arr[end]>=sumo):
+                    end-=1
+                else:
+                    count+=end-start
+                    start+=1
+        return count
+        
