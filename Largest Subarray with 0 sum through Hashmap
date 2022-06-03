@@ -1,0 +1,17 @@
+#Your should return the required output
+class Solution:
+    def maxLen(self, n, arr):
+        #Code here
+        memo={}
+        prefixsum=0
+        memo[prefixsum]=-1
+        ans=0
+        for i in range(n):
+            currentval=arr[i]
+            prefixsum+=currentval
+            if(prefixsum in memo):
+                temp=i-memo[prefixsum]
+                ans=max(ans,temp)
+            else:
+                memo[prefixsum]=i
+        return ans
