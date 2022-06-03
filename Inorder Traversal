@@ -1,0 +1,9 @@
+class Solution:
+    def InOrder(self,root):
+        if not root:
+            return []
+        tmp=[]
+        tmp+=self.InOrder(root.left)
+        tmp.append(root.data)
+        tmp+=self.InOrder(root.right)
+        return tmp
