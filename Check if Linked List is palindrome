@@ -1,0 +1,40 @@
+class Solution:
+    def isPalindrome(self, head):
+        #code here
+        if head is None or head.next is None:
+            return True
+        
+        midnode=self.middleNode(head)
+        tempnode=midnode.next
+        midnode.next=None
+        
+        templist=self.reverseList(tempnode)
+        return self.compare(head,templist)
+        
+    def compare(self,l1,l2):
+        while (l1 and l2):
+            if(l1.data!=l2.data):
+                return False
+            l1=l1.next
+            l2=l2.next
+        return True
+    
+    def reverseList(self, head):
+        prev=None
+        current=head
+        while(current is not None):
+            tempNode=current.next
+            current.next=prev
+            prev=current
+            current=tempNode
+        return prev
+    
+    def middleNode(self, head):
+        if (head is None):
+            return None
+        fastptr=head
+        slowptr=head
+        while(fastptr.next and fastptr.next.next):
+            fastptr=fastptr.next.next
+            slowptr=slowptr.next
+        return slowptr
