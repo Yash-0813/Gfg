@@ -1,0 +1,15 @@
+class Solution:
+    def findMax(self,root):
+        #code here
+        if(root==None):
+            return 0
+        maxleft=self.findMax(root.left)
+        maxright=self.findMax(root.right)
+        return max(root.data,max(maxleft,maxright))
+    def findMin(self,root):
+        #code here
+        if(root==None):
+            return 100000
+        minleft=self.findMin(root.left)
+        minright=self.findMin(root.right)
+        return min(root.data,min(minleft,minright))
