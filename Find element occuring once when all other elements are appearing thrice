@@ -1,0 +1,12 @@
+class Solution:
+    def singleElement(self, arr, N):
+        # code here
+        memo={}
+        for i in arr:
+            if i not in memo:
+                memo[i]=1
+            else:
+                memo[i]+=1
+        for k in memo.keys():
+            if(memo[k]==1):
+                return k
