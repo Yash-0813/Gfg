@@ -1,0 +1,4 @@
+class Solution:
+    def waysToBreakNumber (self,N):
+        # code here 
+        return int((int(N)+1)*(int(N)+2)/2)
