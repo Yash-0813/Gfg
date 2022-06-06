@@ -1,0 +1,29 @@
+class Solution:
+    def countDistinct(self, A, N, K):
+        # Code here
+        memo={}
+        count=0
+        l=[]
+        for i in range(K):
+           if A[i] not in memo:
+               memo[A[i]]=1
+               count=count+1
+           else:
+               memo[A[i]]=memo[A[i]]+1
+       
+        l.append(count)
+       
+        for i in range(K,N):
+           if memo[A[i-K]]==1:
+               del memo[A[i-K]]
+               count=count-1
+           else:
+               memo[A[i-K]]-=1
+           
+           if A[i] not in memo:
+               memo[A[i]]=1
+               count+=1
+           else:
+               memo[A[i]]+=1
+           l.append(count)
+        return l
