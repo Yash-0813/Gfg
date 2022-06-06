@@ -1,0 +1,22 @@
+
+class Solution:
+    #Function to count subarrays with sum equal to 0.
+    def findSubArrays(self,arr,n):
+        sum_arr = []
+        suma = 0
+
+        for el in arr:
+            suma += el
+            sum_arr.append(suma)
+        
+        res = 0
+        d = {}
+        for suma in sum_arr:
+            if suma == 0:
+                res += 1
+            if suma in d:
+                res += d[suma]
+                d[suma] += 1
+            else:
+                d[suma] = 1
+        return res
