@@ -1,0 +1,9 @@
+class Solution:
+    def safePos(self, n, k):
+        # code here 
+        arr = [i for i in range(1,n+1)]
+        count = 0
+        while len(arr) > 1:
+           count = (count + k-1)%len(arr)
+           arr.pop(count)
+        return arr[0]
