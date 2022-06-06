@@ -1,0 +1,8 @@
+class Solution:
+    def count(self, S, m, n): 
+        # code here
+        dp = [1] + n * [0]
+        for coin in S:
+            for num in range(coin, n + 1):
+                dp[num] += dp[num - coin]
+        return dp[n]
