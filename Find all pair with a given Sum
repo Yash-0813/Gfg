@@ -1,0 +1,16 @@
+class Solution:
+    def allPairs(self, A, B, N, M, X):
+        # Your code goes here
+        l =[]
+        d1 = dict()
+        d2 = dict()
+        for i in range(N):
+           d1[A[i]] = 1
+           d2[X-A[i]] =0
+        for j in range(M):
+           d2[B[j]] = 1
+        for i in range(N):
+           if d2[X-A[i]]==1:
+               l.append([A[i],X-A[i]])
+        l.sort()
+        return l
