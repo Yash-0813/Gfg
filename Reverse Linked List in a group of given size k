@@ -1,0 +1,17 @@
+class Solution:
+    def reverse(self,head, k):
+        # Code here
+        current=head
+        prev=None
+        tempNode=None
+        count=0
+        
+        while(current and count<k):
+            tempNode=current.next
+            current.next=prev
+            prev=current
+            current=tempNode
+            count+=1
+        if(tempNode !=None):
+            head.next=self.reverse(tempNode,k)
+        return prev
