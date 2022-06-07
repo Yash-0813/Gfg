@@ -1,0 +1,19 @@
+class Solution:
+
+    def longestSubstrDistinctChars(self, S):
+        # code here
+        l=0
+        i,j=0,0
+        dic={}
+        while j<len(S):
+            if S[j] not in dic:
+                dic[S[j]]=1
+                l=max(l,len(dic))
+            else:
+                while S[i]!=S[j]:
+                    del dic[S[i]]
+                    i+=1
+                i+=1
+                dic[S[j]]=1
+            j+=1
+        return l
