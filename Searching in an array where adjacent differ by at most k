@@ -1,0 +1,5 @@
+def search (arr, n, x, k) : 
+    #Complete the function
+    if(x in arr):
+        return arr.index(x)
+    return -1
