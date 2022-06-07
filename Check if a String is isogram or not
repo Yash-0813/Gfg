@@ -1,0 +1,9 @@
+class Solution:
+    
+    #Function to check if a string is Isogram or not.
+    def isIsogram(self,s):
+        #Your code here
+        for i in s:
+            if(s.count(i)>1):
+                return False
+        return True
