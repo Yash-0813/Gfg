@@ -1,0 +1,16 @@
+class Solution:
+
+    def printSequence(self,S):
+        # code here
+        dic=['ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ']
+        s1=""
+        for i in S:
+            if i == " ":
+                s1+="0"
+            else:
+                k=0
+                while k<len(dic):
+                    if i in dic[k]:
+                        s1+=(((dic[k].index(i))+1)*str(k+2))
+                    k+=1
+        return s1
