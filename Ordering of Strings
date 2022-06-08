@@ -1,0 +1,4 @@
+class Solution:
+    def orderString(self, s, n):
+        # code here
+        return min(s),max(s)
