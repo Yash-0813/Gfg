@@ -20,3 +20,25 @@ class Solution:
             else:
                 d[suma] = 1
         return res
+
+
+----------------------------------------------------- 2nd approach------------------------------------------------------------------------------
+
+class Solution:
+    #Function to count subarrays with sum equal to 0.
+    def findSubArrays(self,arr,n):
+        memo={}
+        prefixsum=answer=0
+        memo[prefixsum]=1
+        
+        for i in range(0,len(arr)):
+            currentval=arr[i]
+            prefixsum+=currentval
+            
+            if(prefixsum in memo):
+                answer+=memo[prefixsum]
+                memo[prefixsum]+=1
+                
+            else:
+                memo[prefixsum]=1
+        return answer
