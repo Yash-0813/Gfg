@@ -1,0 +1,12 @@
+def isLengthEvenOrOdd(head):
+    # Code here
+    count = 0
+    temp = head
+    while temp != None:
+        count += 1
+        temp = temp.next
+        
+    if (count % 2) == 0:
+        return 0
+    else:
+        return 1
