@@ -1,0 +1,20 @@
+class Solution:
+    # Your task is to Complete this function
+    # functtion should return an integer
+    def maxDistance(self, arr, n):
+        # Code here
+        d={}
+        d1={}
+        for i in range(n):
+           if arr[i] not in d:
+               d[arr[i]]=i
+       
+        for j in range(n-1,-1,-1):
+           if arr[j] not in d1:
+               d1[arr[j]]=j
+               
+        length=0
+        for i in d:
+           if abs(d[i]-d1[i])>length:
+               length=abs(d[i]-d1[i])
+        return length
