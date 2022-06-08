@@ -11,3 +11,19 @@ class Solution:
         
         return arr1
     
+------------------------------------------2nd approach------------------------------------------------
+
+class Solution:
+    def merge(self, arr1, arr2, n, m): 
+        # code here
+        for i in arr2:
+            arr1.append(i)
+        arr1.sort()
+        arr2.clear()
+        
+        #return arr1
+# if we want to give ans in two array than perform down task as well.
+        for i in range(n,n+m):
+           arr2.append(arr1[i])
+        for i in range(n,n+m):
+           arr1.pop()
