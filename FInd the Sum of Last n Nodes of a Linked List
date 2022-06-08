@@ -1,0 +1,16 @@
+def sumOfLastN_Nodes(head,n):
+    #function should return sum of last n nodes
+    length=0
+    temp=head
+    while(temp!=None):
+        length+=1
+        temp=temp.next
+    temp1=head
+    count=0
+    sum=0
+    while(temp1!=None):
+        if(count>=length-n):
+            sum+=temp1.data
+        count+=1
+        temp1=temp1.next
+    return sum
