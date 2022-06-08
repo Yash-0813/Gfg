@@ -27,3 +27,39 @@ class Solution:
                memo[A[i]]+=1
            l.append(count)
         return l
+
+
+
+---------------------------------------------------2nd Approach-----------------------------------------------------------------------------------
+
+
+
+class Solution:
+    def countDistinct(self, nums, n, k):
+        # Code here
+        memo={}
+        distinctcount=0
+        answer=[]
+        for i in range(k-1):
+            currentval=nums[i]
+            if currentval in memo:
+               memo[currentval]+=1
+            else:
+                memo[currentval]=1
+                distinctcount+=1
+        release=0
+        for accquire in range(k-1,n):
+            currentval=nums[accquire]
+            if(currentval in memo):
+                memo[currentval]+=1
+            else:
+                memo[currentval]=1
+                distinctcount+=1
+            answer.append(distinctcount)
+            discardedvalue=nums[release]
+            memo[discardedvalue]-=1
+            if(memo[discardedvalue]==0):
+                del memo[discardedvalue]
+                distinctcount-=1
+            release+=1
+        return answer
