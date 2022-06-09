@@ -1,0 +1,31 @@
+
+def reorderList(self):
+    def reverse(head):
+        curr = head
+        prev = None
+        next = None
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        return prev
+    def find_mid(head):
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+    if (self.head==None or self.head.next==None):
+        return
+    mid = find_mid(self.head)
+    head2 = reverse(mid)
+    head1 = head
+    while head2.next:
+        tmp = head1.next
+        head1.next = head2
+        head1 = tmp
+        tmp = head2.next
+        head2.next = head1
+        head2 = tmp
