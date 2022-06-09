@@ -1,0 +1,19 @@
+class Solution:
+    def findMaxLen(ob, s):
+        # code here 
+        l=[]
+        i=0;
+        ans=0
+        curr = 0
+        while(i<len(s)):
+            if s[i]=='(':
+                l.append(curr)
+                curr=0
+            else:
+                if len(l)==0:
+                    curr=0
+                else:
+                    curr = curr+l.pop()+2
+                    ans = max(ans,curr)
+            i+=1
+        return ans
