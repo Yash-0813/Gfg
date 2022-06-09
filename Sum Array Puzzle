@@ -1,0 +1,6 @@
+def SumArray(arr,n):
+     # your code here
+     arr=list(map(int,arr))
+     s=sum(arr)
+     for i in arr:
+       print(s-i,end=" ")
