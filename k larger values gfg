@@ -1,0 +1,9 @@
+#code
+t=int(input())
+for i in range(t):
+   n,k=map(int,input().split())
+   s=[int(s) for s in input().split()]
+   s.sort(reverse=True)
+   for x in range(k):
+       print(s[x],end=" ")
+   print('')    
