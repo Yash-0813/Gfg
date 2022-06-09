@@ -1,0 +1,14 @@
+class Solution:
+    def find (self, N):
+        # code here
+        for num in range(N, -1, -1):
+            if len(str(num))==1 :
+                return N
+            else:
+                numString= list(str(num))
+                numString.sort()
+                digit="".join(numString)
+          
+                if int(digit) == num:
+                    return num
+        
