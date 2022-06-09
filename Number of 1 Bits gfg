@@ -1,0 +1,5 @@
+class Solution:
+	def setBits(self, N):
+		# code here
+		binary=bin(N)
+		return binary.count("1")
