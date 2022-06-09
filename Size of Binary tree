@@ -1,0 +1,7 @@
+def getSize(node):
+    # code here
+    if(node==None):
+        return 0
+    left=getSize(node.left)
+    right=getSize(node.right)
+    return right+left+1
