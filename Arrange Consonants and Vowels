@@ -1,0 +1,20 @@
+class Solution:
+    #Function to reverse a linked list.
+    def arrangeCV(self, head):
+        # Code here
+        vowel=['a','e','i','o','u']
+        num=[]
+        num1=[]
+        
+        t=head
+        while t:
+            if t.data in vowel:
+                num.append(t.data)
+            else:
+                num1.append(t.data)
+            t=t.next
+        num2=num+num1
+        r=Linked_List()
+        for i in num2:
+            r.insert(i)
+        return r.head
