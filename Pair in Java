@@ -1,0 +1,28 @@
+class custom_Compare{
+    
+    // Compare function
+    static void sortPairs(Pair arr[], int N){
+        
+        // Your code here
+        for(int i=0;i<N-1;i++){
+           for(int j=0;j<N-1;j++){
+               if(arr[j].x>arr[j+1].x){
+                   arr[j].x^=arr[j+1].x;
+                   arr[j+1].x^=arr[j].x;
+                   arr[j].x^=arr[j+1].x;
+                   
+                   arr[j].y^=arr[j+1].y;
+                   arr[j+1].y^=arr[j].y;
+                   arr[j].y^=arr[j+1].y;
+                   
+               }
+           }
+       }
+        
+        //printing the x,y Pairs
+        for(int i = 0;i<N;i++){
+            System.out.print(arr[i].x + " " + arr[i].y + " ");
+        }
+        System.out.println();
+    }
+}
