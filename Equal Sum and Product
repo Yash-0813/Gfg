@@ -1,0 +1,19 @@
+class Solution:
+
+	
+	def numOfsubarrays(self,arr, n):
+    	# code here
+    	result=0
+    	for i in range(n):
+    	    sum=arr[i]
+    	    prod=arr[i]
+    	    if(sum==prod):
+    	        result+=1
+    	    j=i+1
+    	    while(j<n):
+        	    sum+=arr[j]
+        	    prod*=arr[j]
+        	    if(sum==prod):
+        	           result+=1
+    	        j+=1
+    	return result
