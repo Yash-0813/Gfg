@@ -1,0 +1,9 @@
+class Solution:
+    def Maximize(self, a, n): 
+        # Complete the function
+        a.sort()
+        product = 0
+        for i in range(0,n):
+           product = product + a[i]*i
+        return product % 1000000007
+      
