@@ -1,0 +1,8 @@
+class Solution:
+    def PartyType(self, a, n):
+        # Your code goes here
+        a.sort()
+        for i in range(n-1):
+            if(a[i+1]-a[i]==0):
+                return "BOYS"
+        return "GIRLS"
