@@ -1,0 +1,3 @@
+def chocolates (arr, n) : 
+    #Complete the function
+    return min(arr)
