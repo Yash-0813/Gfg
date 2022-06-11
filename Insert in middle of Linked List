@@ -1,0 +1,13 @@
+def insertInMid(head,x):
+    #code here
+    slow=head
+    fast=head
+    newNode=(x)
+    
+    while(fast.next!=None and fast.next.next!=None):
+        slow=slow.next
+        fast=fast.next.next
+        
+    newNode.next=slow.next
+    slow.next=newNode
+    return head
