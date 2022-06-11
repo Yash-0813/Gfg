@@ -1,0 +1,18 @@
+class Solution:
+    
+    #Function to rotate a linked list.
+    def rotate(self, head, k):
+        # code here
+        list=[]
+        temp=head
+        while(temp):
+            list.append(temp.data)
+            temp=temp.next
+        list=list[k:]+list[:k]
+        temp=head
+        i=0
+        while(temp!=None):
+            temp.data=list[i]
+            i+=1
+            temp=temp.next
+        return head
