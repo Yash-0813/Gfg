@@ -1,0 +1,22 @@
+class Solution:
+    
+    #Function to find all elements in array that appear more than n/k times.
+    def countOccurence(self,arr,n,k):
+        #Your code here
+        occur= n//k
+       
+        dict ={}
+       
+        for num in arr:
+           if num in dict:
+               dict[num] += 1
+           
+           else:
+               dict[num] = 1
+       
+        count = 0
+        for  k,v in dict.items():
+           if v > occur:
+               count += 1
+       
+        return count
