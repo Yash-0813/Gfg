@@ -1,0 +1,15 @@
+def multiplyTwoList(head1, head2):
+    # Code here
+    str1=""
+    str2=""
+    temp1=head1
+    temp2=head2
+    
+    while(temp1):
+        str1+=str(temp1.data)
+        temp1=temp1.next
+    while(temp2):
+        str2+=str(temp2.data)
+        temp2=temp2.next
+    result=int(str1)*int(str2)
+    return result%1000000007
