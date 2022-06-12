@@ -1,0 +1,16 @@
+def binarySearch(arr,l,h):
+    '''
+    arr: given array
+    low: low index initialize as zero
+    high: high index initialize as len(arr)-1
+    return: magical n.o or -1
+    '''
+    while(l<=h):
+        mid=(l+h)//2
+        if(arr[mid]==mid):
+            return mid
+        elif(arr[mid]>mid):
+            h=mid-1
+        else:
+            l=mid+1
+    return -1
