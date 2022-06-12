@@ -1,0 +1,8 @@
+
+class Solution:
+    def firstIndex(self, arr, n):
+    # Your code goes here
+        for i in range (n):
+               if arr[i]==1:
+                   return arr.index(arr[i])
+        return -1
