@@ -1,0 +1,17 @@
+class Solution:
+	def balancedNumber(self, N):
+		# your code here
+		s=str(N)
+		mid=len(s)//2
+		count=0
+		count1=0
+		
+		for i in range(0,mid):
+		    count+=int(s[i])
+        for j in range(mid+1,len(s)):
+            count1+=int(s[j])
+        
+        if(count==count1):
+            return 1
+        else:
+            return 0
