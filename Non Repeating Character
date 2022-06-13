@@ -1,0 +1,15 @@
+class Solution:
+    
+    #Function to find the first non-repeating character in a string.
+    def nonrepeatingCharacter(self,s):
+        #code here
+        memo={}
+        for i in range(len(s)):
+            if(s[i] not in memo):
+                memo[s[i]]=1
+            else:
+                memo[s[i]]+=1
+        for i in range(len(s)):
+            if(memo[s[i]]==1):
+                return s[i]
+        return "$"
