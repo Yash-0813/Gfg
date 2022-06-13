@@ -1,0 +1,15 @@
+class Solution:
+    def getCount(self,arr, n, num1, num2): 
+        #Comlete the function
+        left=-1
+        right=-1
+        for i in range(n):
+            if(arr[i]==num1 and left==-1):
+                left=i
+            
+            if(arr[i]==num2):
+                right=i
+        if(left==right):
+            return 0
+        
+        return right-left-1
