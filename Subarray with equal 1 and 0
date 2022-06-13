@@ -1,0 +1,24 @@
+class Solution:
+    
+    #Function to count subarrays with 1s and 0s.
+    def countSubarrWithEqualZeroAndOne(self,arr, n):
+        #Your code here
+        memo={}
+        prefixsum=answer=0
+        memo[prefixsum]=1
+        
+        for i in range(0,len(arr)):
+            currentval=arr[i]
+            if(currentval==0):
+                prefixsum+=-1
+            else:
+                prefixsum+=1
+            
+            if(prefixsum in memo):
+                answer+=memo[prefixsum]
+                memo[prefixsum]+=1
+                
+            else:
+                memo[prefixsum]=1
+        return answer
+        
