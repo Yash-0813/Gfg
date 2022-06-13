@@ -1,0 +1,22 @@
+class Solution:
+    def Anagrams(self, words, n):
+        '''
+        words: list of word
+        n:      no of words
+        return : list of group of anagram {list will be sorted in driver code (not word in grp)}
+        '''
+        
+        #code here
+        memo={}
+        for i in words:
+            s=""
+            l=sorted(i)
+            for j in l:
+                s=s+j
+            if s not in memo:
+                memo[s]=[]
+            memo[s].append(i)
+        ans=[]
+        for k,v in memo.items():
+            ans.append(v)
+        return ans
