@@ -1,0 +1,5 @@
+class Solution:
+    def ReverseSort(self, str): 
+        # code here
+        s="".join(sorted(str)[::-1])
+        return (s)
