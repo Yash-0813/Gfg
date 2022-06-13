@@ -1,0 +1,16 @@
+class Solution:
+    
+    #Complete this function
+    
+    #Function to return the name of candidate that received maximum votes.
+    def winner(self,arr,n):
+        # Your code here
+        # return the name of the winning candidate and the votes he recieved
+        candidates_votes={}
+        for cname in arr:
+            votes=arr.count(cname)
+            if(votes in candidates_votes):
+                cname=min(cname,candidates_votes[votes])
+            candidates_votes[votes]=cname
+        maximum_vote=max(candidates_votes.keys())
+        return candidates_votes[maximum_vote],maximum_vote
