@@ -1,0 +1,12 @@
+class Solution:
+    def reverseString(self, s):
+        # code here
+        reverse=s[::-1]
+        final=""
+        for i in reverse:
+           if i in final:
+               continue
+           else:
+               final+=i
+        final=final.replace(" ","")        
+        return final 
