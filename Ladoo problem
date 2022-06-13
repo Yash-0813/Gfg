@@ -1,0 +1,4 @@
+class Solution:
+    def divideLadoo(self, N, A):
+        # code here 
+        return len(set(A))
