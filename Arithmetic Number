@@ -1,0 +1,14 @@
+
+class Solution:
+    def inSequence(self, A, B, C):
+        # code here
+        if(C==0):
+            if(A==B):
+                return 1
+            else:
+                return 0
+        n=(B-A)/C+1
+        if(n>0 and int(n)==n):
+            return 1
+        else:
+            return 0
