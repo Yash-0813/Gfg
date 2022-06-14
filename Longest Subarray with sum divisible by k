@@ -1,0 +1,20 @@
+class Solution:
+	def longSubarrWthSumDivByK (self,nums, n, k) : 
+		#Complete the function
+		answer=prefixsum=0
+        memo={}
+        
+        memo[prefixsum]=-1
+        
+        for i in range(len(nums)):
+            prefixsum+=nums[i]
+            
+            prefixsum%=k
+            
+            if(prefixsum in memo):
+                previndex=memo[prefixsum]
+                answer=max(answer,i-previndex)
+                
+            else:
+                memo[prefixsum]=i
+        return answer
