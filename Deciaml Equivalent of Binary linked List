@@ -1,0 +1,10 @@
+def decimalValue(head):
+    MOD=10**9+7
+    # Code here
+    s=""
+    temp=head
+    while(temp):
+        s+=str(temp.data)
+        temp=temp.next
+    ans=int(s,2)
+    return ans%MOD
