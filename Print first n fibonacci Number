@@ -1,0 +1,12 @@
+class Solution:
+    #Function to return list containing first n fibonacci numbers.
+    def printFibb(self,n):
+        # your code here
+        l=[1,1]
+        if(n==1):
+            return [1]
+        else:
+            for i in range(n-2):
+                temp=l[-1]+l[-2]
+                l.append(temp)
+            return l
