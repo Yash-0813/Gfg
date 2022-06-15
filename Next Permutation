@@ -1,0 +1,21 @@
+class Solution:
+    def nextPermutation(self, N, nums):
+        # code here
+        pivot = 0
+        for i in range(N-1, -1, -1):
+           if arr[i-1] < arr[i]:
+               pivot = i
+               break
+       
+        if pivot == 0:
+          arr.sort()
+          return arr
+                 
+        swap = N-1
+       
+        while arr[pivot-1] >= arr[swap]:
+           swap -= 1
+       
+        arr[swap], arr[pivot-1] = arr[pivot -1], arr[swap]
+        arr[pivot:] = reversed(arr[pivot:])
+        return arr
