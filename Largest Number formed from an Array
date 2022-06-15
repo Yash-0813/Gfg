@@ -1,0 +1,5 @@
+class Solution:
+
+	def printLargest(self,arr):
+	    # code here
+	    return "".join(sorted(arr,reverse=True,key=lambda _:_*18))
