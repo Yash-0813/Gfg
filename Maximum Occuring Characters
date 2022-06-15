@@ -1,0 +1,23 @@
+import math
+class Solution:
+    
+    
+    #Function to find the maximum occurring character in a string.
+    def getMaxOccurringChar(self,s):
+        #code here
+        memo= {}
+        for i in range(len(s)):
+           if s[i] not in memo:
+               memo[s[i]] = 1
+           else:
+               memo[s[i]] += 1
+        a = []
+        count= max(memo.values())
+        for i in memo:
+           if count==memo[i]:
+               a.append(i)
+        frequency= math.inf
+        for i in a:
+           if ord(i)<frequency:
+               frequency= ord(i)
+        return chr(frequency)
