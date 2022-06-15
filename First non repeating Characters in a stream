@@ -1,0 +1,16 @@
+class Solution:
+	def FirstNonRepeating(self, A):
+		# Code here
+		temp=[0]*26
+		l=[]
+		ans=[]
+		for i in A:
+		    j=ord(i)-ord('a')
+		    temp[j]+=1
+		    if(temp[j]==1):
+		        l.append(i)
+		    if(temp[j]==2):
+		        l.remove(i)
+		    
+		    ans.append( l[0] if l else '#' )
+	    return "".join(ans)
