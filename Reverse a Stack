@@ -1,0 +1,19 @@
+//User function Template for Java
+
+class Solution
+{ 
+    static ArrayList<Integer> reverse(Stack<Integer> s)
+    {
+        // add your code here
+        ArrayList<Integer> res = new ArrayList<>();
+    recursive(res,s);
+      return res;
+  }
+  static void recursive(ArrayList<Integer> res, Stack<Integer> s){
+      if(!s.isEmpty()) 
+      {
+           res.add(s.pop());
+           recursive(res, s);
+      }
+  }
+}
