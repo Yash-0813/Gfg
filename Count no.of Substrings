@@ -1,0 +1,26 @@
+class Solution:
+    def substrCount (self,s, k):
+        # your code here
+        return self.countsub(s,k)-self.countsub(s,k-1)
+    def countsub(self,nums,k):
+        start, end, total, distinctChars = 0, 0, 0, 0
+        x = {}
+        while end < len(nums):
+            num = nums[end]
+            if num in x:
+                x[num] += 1
+            else:
+                x[num] = 1
+                distinctChars += 1
+                    
+            while distinctChars > k:
+                beg = nums[start]
+                x[beg] -= 1
+                start += 1
+                if x[beg] == 0:
+                    del x[beg]
+                    distinctChars -= 1
+
+            total += end - start + 1
+            end += 1
+        return total
