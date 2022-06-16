@@ -1,0 +1,7 @@
+def getCandidate(n, k):
+    #complete the function here
+    count=0
+    while(n>=k):
+        n=n//k
+        count+=1
+    return (k**count)
