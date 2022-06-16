@@ -1,0 +1,8 @@
+class Solution:
+    def countNonLeafNodes(self, root):
+        # add code here
+        if root is None:
+            return 0
+        if root.left is None and root.right is None:
+            return 0
+        return self.countNonLeafNodes(root.left)+self.countNonLeafNodes(root.right)+1
