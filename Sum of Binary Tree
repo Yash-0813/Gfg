@@ -1,0 +1,6 @@
+
+def sumBT(root):
+    #code
+    if(root==None):
+        return 0
+    return root.data+sumBT(root.left)+sumBT(root.right)
