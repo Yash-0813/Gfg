@@ -1,0 +1,7 @@
+class Solution:
+    def printMinIndexChar(self, S, patt):
+		#Code here
+		for i in range(len(S)):
+		    if(S[i] in patt):
+		        return S[i]
+		return "$"
