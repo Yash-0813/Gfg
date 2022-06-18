@@ -1,0 +1,13 @@
+def LeftView(root):
+    answer=[]
+    s=set()
+    leftSideview(root,1,s,answer)
+    return answer
+def leftSideview(root,level,memo,answer):
+    if(root==None):
+        return
+    if(level not in memo):
+        memo.add(level)
+        answer.append(root.data)
+    leftSideview(root.left,level+1,memo,answer)
+    leftSideview(root.right,level+1,memo,answer)
