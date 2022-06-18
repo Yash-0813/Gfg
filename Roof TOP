@@ -1,0 +1,17 @@
+class Solution:
+    
+    #Function to find maximum number of consecutive steps 
+    #to gain an increase in altitude with each step.
+    def maxStep(self,A, N):
+        #Your code here
+        n1,n2=0,0
+        temp=A[0]
+        for i in range(1,N):
+            if(temp<A[i]):
+                n1+=1
+                temp=A[i]
+            elif(temp>=A[i]):
+                n2=max(n2,n1)
+                n1=0
+                temp=A[i]
+        return max(n1,n2)
