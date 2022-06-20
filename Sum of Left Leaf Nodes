@@ -1,0 +1,12 @@
+def leftLeavesSum(root_node):
+    # Complete this function
+    return sumOfLeavesinleft(root,False)
+def sumOfLeavesinleft(root,isleft):
+    if(root is None):
+        return 0
+    if(root.left is None and root.right is None and isleft is True):
+        return root.data
+    leftAns=sumOfLeavesinleft(root.left,True)
+    rightAns=sumOfLeavesinleft(root.right,False)
+        
+    return leftAns+rightAns
