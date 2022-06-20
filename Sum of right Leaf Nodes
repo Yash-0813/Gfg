@@ -1,0 +1,13 @@
+class Solution:
+    def rightLeafSum(self,root):
+        ##code here
+        return self.sumOfLeavesinright(root,False)
+    def sumOfLeavesinright(self,root,isright):
+        if(root is None):
+            return 0
+        if(root.left is None and root.right is None and isright is True):
+            return root.data
+        leftAns=self.sumOfLeavesinright(root.left,False)
+        rightAns=self.sumOfLeavesinright(root.right,True)
+        
+        return leftAns+rightAns
