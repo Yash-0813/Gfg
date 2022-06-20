@@ -1,0 +1,13 @@
+class Solution:
+    # return true/false denoting whether the tree is Symmetric or not
+    def isSymmetric(self, root):
+        # Your Code Here
+        if(root==None):
+            return True
+        return self.Symmetrictrees(root.left,root.right)
+    def Symmetrictrees(self,t1,t2):
+        if(t1==None and t2==None):
+            return True
+        if(t1==None or t2==None or t1.data!=t2.data):
+            return False
+        return self.Symmetrictrees(t1.left,t2.right) and self.Symmetrictrees(t1.right,t2.left)
