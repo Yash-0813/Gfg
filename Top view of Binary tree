@@ -1,0 +1,31 @@
+import collections
+class Solution:
+    
+    #Function to return a list of nodes visible from the top view 
+    #from left to right in Binary Tree.
+    def topView(self,root):
+        
+        # code here
+        answer=[]
+        queue=collections.deque()
+        memo={}
+        left=10000000000
+        right=-1000000000
+        
+        if(right==None):
+            return answer
+        queue.append((root,0))
+        while(queue):
+            currentnode,currenthd=queue.popleft()
+            left=min(left,currenthd)
+            right=max(right,currenthd)
+            
+            if(currenthd not in memo):
+                memo[currenthd]=currentnode.data
+            if(currentnode.left!=None):
+                queue.append((currentnode.left,currenthd-1))
+            if(currentnode.right!=None):
+                queue.append((currentnode.right,currenthd+1))
+        for i in range(left,right+1):
+            answer.append(memo[i])
+        return answer
