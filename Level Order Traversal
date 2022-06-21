@@ -13,3 +13,36 @@ class Solution:
            if node.right:
                q.append(node.right)
         return a
+
+
+________________________________________________________-2 ND Approach Through BFS--------------------------------------------------------------------
+
+
+class Solution:
+    #Function to return the level order traversal of a tree.
+    def levelOrder(self,root ):
+        # Code here
+        answer=[]
+        queue=[]
+        
+        if(root==None):
+            return answer
+        queue.append(root)
+        
+        while(queue):
+            currentsize=len(queue)
+            level=[]
+            while(currentsize>0):
+                currentnode=(queue.pop(0))
+                level.append(currentnode.data)
+                currentsize-=1
+                
+                if(currentnode.left!=None):
+                    queue.append(currentnode.left)
+                if(currentnode.right!=None):
+                    queue.append(currentnode.right)
+            for i in level:
+                answer.append(i)
+            
+            
+        return answer
