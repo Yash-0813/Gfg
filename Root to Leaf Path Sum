@@ -1,0 +1,18 @@
+class Solution:
+    def hasPathSum(self,root, targetSum):
+        '''
+        :param root: root of given tree.
+        :param sm: root to leaf sum
+        :return: true or false
+        '''
+        # code here
+        return self.isPossible(root,targetSum,0)
+    def isPossible(self,root,target,currentsum):
+        if(root==None):
+            return False
+        
+        if(root.left==None and root.right==None):
+            return currentsum+root.data==target
+        
+        return self.isPossible(root.left,target,currentsum+root.data) or self.isPossible(root.right,target,currentsum+root.data)
+    
