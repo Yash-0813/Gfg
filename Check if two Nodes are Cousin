@@ -1,0 +1,23 @@
+def isCousin(root, x, y):
+    # Your code here
+    levels=[-1,-1]
+    parents=[-1,-1]
+        
+    findNodes(root,x,y,levels,parents,0,None)
+    if(levels[0]==levels[1] and parents[0]!=parents[1]):
+        return True
+    return False
+def findNodes(root,x,y,levels,parents,currentlevel,currentparent):
+        if(root==None):
+            return
+        if(root.data==x):
+            levels[0]=currentlevel
+            parents[0]=currentparent
+        if(root.data==y):
+            levels[1]=currentlevel
+            parents[1]=currentparent
+        
+        findNodes(root.left,x,y,levels,parents,currentlevel+1,root)
+        findNodes(root.right,x,y,levels,parents,currentlevel+1,root)
+        
+        return
