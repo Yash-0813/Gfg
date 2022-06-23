@@ -1,0 +1,18 @@
+def findPreSuc(root, pre, suc, key):
+    #your code goes here
+    if root is None:
+       return 
+    curr = root
+    while(curr!=None):
+        if (curr.key > key):
+           suc[0] = curr
+           curr = curr.left
+        else:
+           curr = curr.right
+    curr = root
+    while(curr):
+        if (curr.key< key):
+           pre[0] = curr
+           curr = curr.right
+        else:
+           curr = curr.left
