@@ -1,0 +1,17 @@
+def noSibling(root):
+    # code here
+    ans=[]
+    solve(root,ans)
+    if(ans):
+        ans.sort()
+        return ans
+    return [-1]
+def solve(root,ans):
+    if (root==None):
+        return
+    if(root.right==None and root.left!=None):
+        ans.append(root.left.data)
+    elif(root.right!=None and root.left==None):
+        ans.append(root.right.data)
+    solve(root.left,ans)
+    solve(root.right,ans)
