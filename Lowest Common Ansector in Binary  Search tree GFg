@@ -1,0 +1,11 @@
+def LCA(root, p, q):
+    #code here.
+    currentnode=root
+    while(currentnode!=None):
+        if(currentnode.data>p and currentnode.data>q):
+            currentnode=currentnode.left
+        elif(currentnode.data<p and currentnode.data<q):
+            currentnode=currentnode.right
+        else:
+            return currentnode
+    return None
