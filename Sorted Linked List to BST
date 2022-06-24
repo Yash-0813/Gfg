@@ -1,0 +1,22 @@
+class Solution:
+    def sortedListToBST(self, head):
+        #code here
+        if(head==None):
+            return None
+        fast=head
+        slow=head
+        prev=None
+        while(fast!=None and fast.next!=None):
+            prev=slow
+            slow=slow.next
+            fast=fast.next.next
+        root=TNode(slow.data)
+        
+        if(prev!=None):
+            prev.next=None
+        else:
+            head=None
+        
+        root.left =self.sortedListToBST(head)
+        root.right =self.sortedListToBST(slow.next)
+        return root
