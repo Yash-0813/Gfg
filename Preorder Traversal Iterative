@@ -1,0 +1,17 @@
+class Solution:
+    # Return a list containing the inorder traversal of the given tree
+    def preOrder(self, root):
+        # code here
+        answer=[]
+        stack=[]
+        if(root==None):
+            return None
+        stack.append(root)
+        while(stack):
+            currentnode=(stack.pop())
+            answer.append(currentnode.data)
+            if(currentnode.right!=None):
+                stack.append(currentnode.right)
+            if(currentnode.left!=None):
+                stack.append(currentnode.left)
+        return answer
