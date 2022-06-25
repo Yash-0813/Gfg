@@ -1,0 +1,21 @@
+def buildTree(inorder, postorder, n):
+    # your code here
+    memo=populatemap(inorder)
+    postindex=[len(postorder)-1]
+    return constructTree(postorder,memo,0,len(inorder)-1,postindex)
+def populatemap(inorder):
+    dict={}
+    for i in range(len(inorder)):
+        dict[inorder[i]]=i
+    return dict
+def constructTree(postorder,memo,start,end,postindex):
+    if(start>end):
+        return None
+    root=Node(postorder[postindex[0]])
+    currentindex=memo[postorder[postindex[0]]]
+    postindex[0]-=1
+    root.right=constructTree(postorder,memo,currentindex+1,end,postindex)
+    root.left=constructTree(postorder,memo,start,currentindex-1,postindex)
+        
+        
+    return root
