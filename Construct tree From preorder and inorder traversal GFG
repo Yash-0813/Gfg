@@ -1,0 +1,21 @@
+class Solution:
+    def buildtree(self, inorder, preorder, n):
+        # code here
+        # build tree and return root node
+        memo=self.populatemap(inorder)
+        preindex=[0]
+        return self.constructTree(preorder,memo,0,len(inorder)-1,preindex)
+    def populatemap(self,inorder):
+        dict={}
+        for i in range(len(inorder)):
+            dict[inorder[i]]=i
+        return dict
+    def constructTree(self,preorder,memo,start,end,preindex):
+        if(start>end):
+            return None
+        root=Node(preorder[preindex[0]])
+        currentindex=memo[preorder[preindex[0]]]
+        preindex[0]+=1
+        root.left=self.constructTree(preorder,memo,start,currentindex-1,preindex)
+        root.right=self.constructTree(preorder,memo,currentindex+1,end,preindex)
+        return root
