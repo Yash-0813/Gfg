@@ -1,0 +1,8 @@
+class Solution:
+    def isPowerof3 (ob,n):
+        # code here 
+        if(n==1):
+            return "Yes"
+        if(n<=0 or n%3!=0):
+            return "No"
+        return ob.isPowerof3(n//3)
