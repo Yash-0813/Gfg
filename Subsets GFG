@@ -1,0 +1,21 @@
+class Solution:
+    def subsets(self, nums):
+        #code here
+        powerset=[]
+        self.generateAllSubsets(nums,0,[],powerset)
+        powerset.sort()
+        return powerset
+    def generateAllSubsets(self,nums,currentindex,currentsubset,powerset):
+        if(currentindex>=len(nums)):
+            powerset.append(currentsubset.copy())
+            return
+        currentvalue=nums[currentindex]
+        
+        currentsubset.append(currentvalue)
+        self.generateAllSubsets(nums,currentindex+1,currentsubset,powerset)
+        
+        currentsubset.pop()
+        
+        self.generateAllSubsets(nums,currentindex+1,currentsubset,powerset)
+        
+        return
