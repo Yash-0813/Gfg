@@ -1,0 +1,21 @@
+
+class Solution:
+    #Function to count number of ways to reach the nth stair.
+    def countWays(self,n):
+        
+        # code here
+        return self.totalways(0,n,{})
+    def totalways(self,currentstair,targetstair,memo):
+        if(currentstair==targetstair):
+            return 1
+        if(currentstair>targetstair):
+            return 0
+        currentkey=currentstair
+        if currentkey in memo:
+            return memo[currentkey]
+        onejump=self.totalways(currentstair+1,targetstair,memo)
+        twojump=self.totalways(currentstair+2,targetstair,memo)
+        
+        memo[currentkey]=onejump+twojump
+        
+        return memo[currentkey]%(10**9+7)
