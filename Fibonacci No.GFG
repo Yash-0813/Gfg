@@ -1,0 +1,16 @@
+class Solution:
+    def nthFibonacci(self, n):
+        # code here 
+        return self.nthfib(n,{})%(10**9+7)
+    def nthfib(self,n,memo):
+        
+        if(n<=1):
+            return n
+        currentkey=n
+        if(currentkey in memo):
+            return memo[currentkey]
+        a=self.nthfib(n-1,memo)
+        b=self.nthfib(n-2,memo)
+        
+        memo[currentkey]=a+b
+        return memo[currentkey]
