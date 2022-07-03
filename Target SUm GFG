@@ -1,0 +1,19 @@
+class Solution:
+    def findTargetSumWays(self, nums, N, target):
+        # code here 
+        return self.totalways(nums,target,0,{})
+    def totalways(self,nums,target,currentindex,memo):
+        if(currentindex>=len(nums) and target!=0):
+            return 0
+        if(currentindex>=len(nums) and target==0):
+            return 1
+        
+        currentkey=str(currentindex)+"_"+str(target)
+        if(currentkey in memo):
+            return memo[currentkey]
+        possign=self.totalways(nums,target-nums[currentindex],currentindex+1,memo)
+        negsign=self.totalways(nums,target+nums[currentindex],currentindex+1,memo)
+        
+        memo[currentkey]=possign+negsign
+        
+        return memo[currentkey]
