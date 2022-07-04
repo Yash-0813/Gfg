@@ -1,0 +1,20 @@
+
+class Solution:
+    def maxProfit(self, k, N, prices):
+        # code here
+        return self.besttime(prices,0,True,k,{})
+    def besttime(self,prices,currentday,canbuy,transcount,memo):
+        if(currentday>=len(prices) or transcount<=0):
+            return 0
+        currentkey=(currentday,canbuy,transcount)
+        if currentkey in memo:
+            return memo[currentkey]
+        if(canbuy):
+            idle=self.besttime(prices,currentday+1,canbuy,transcount,memo)
+            buy=-prices[currentday]+self.besttime(prices,currentday+1,False,transcount,memo)
+            memo[currentkey]=max(idle,buy)
+        else:
+            idle=self.besttime(prices,currentday+1,canbuy,transcount,memo)
+            sell=prices[currentday]+self.besttime(prices,currentday+1,True,transcount-1,memo)
+            memo[currentkey]=max(idle,sell)
+        return memo[currentkey]
