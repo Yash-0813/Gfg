@@ -1,0 +1,22 @@
+class Solution:
+    
+    #Function to return max value that can be put in knapsack of capacity W.
+    def knapSack(self,W, wt, val, n):
+       
+        # code here
+        return self.maxprofit(wt,val,W,n,0,{})
+    def maxprofit(self,wt,val,W,n,currentindex,memo):
+        if(currentindex>=n):
+            return 0
+        
+        currentkey=str(currentindex)+"_"+str(W)
+        if(currentkey in memo):
+            return memo[currentkey]
+        
+        consider=0
+        if(wt[currentindex]<=W):
+            consider=val[currentindex]+self.maxprofit(wt,val,W-wt[currentindex],n,currentindex+1,memo)
+        
+        notconsider=self.maxprofit(wt,val,W,n,currentindex+1,memo)
+        memo[currentkey]=max(consider,notconsider)
+        return memo[currentkey]
