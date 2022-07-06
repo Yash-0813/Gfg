@@ -1,0 +1,24 @@
+class Solution:
+    def maximumPath(self, N, matrix):
+        # code here
+        ans=0
+        for currentcol in range(N):
+            tempans=self.maxpathsum(0,currentcol,matrix,N,{})
+            ans=max(ans,tempans)
+        return ans
+    def maxpathsum(self,currentrow,currentcol,matrix,N,memo):
+        if(currentrow>=N or currentcol<0 or currentcol>=N):
+            return 0
+        if(currentrow==N-1):
+            return matrix[currentrow][currentcol]
+        currentkey=str(currentrow)+"_"+str(currentcol)
+        
+        if currentkey in memo:
+            return memo[currentkey]
+        
+        dmove=matrix[currentrow][currentcol]+self.maxpathsum(currentrow+1,currentcol,matrix,N,memo)
+        dleft=matrix[currentrow][currentcol]+self.maxpathsum(currentrow+1,currentcol-1,matrix,N,memo)
+        dright=matrix[currentrow][currentcol]+self.maxpathsum(currentrow+1,currentcol+1,matrix,N,memo)
+        
+        memo[currentkey]=max(dmove,dleft,dright)
+        return memo[currentkey]
