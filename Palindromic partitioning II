@@ -1,0 +1,21 @@
+class Solution:
+    def palindromicPartition(self, s):
+        # code here
+        return self.minCount(s, 0, len(s)-1, {})
+    def minCount(self, s, start, end, memo):
+        if start >= end:
+            return 0
+        temp = s[start:end+1]
+        if temp == temp[::-1]:
+            return 0
+        currentKey = (start, end)
+        if currentKey in memo:
+            return memo[currentKey]
+        ans = float("inf")    
+        for i in range(start, end):
+            temp = s[start:i+1]
+            if temp == temp[::-1]:
+                cutsCount = 1+self.minCount(s, i+1, end, memo)
+            ans = min(ans, cutsCount)
+        memo[currentKey] = ans
+        return memo[currentKey]
