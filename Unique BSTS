@@ -1,0 +1,16 @@
+class Solution:
+    #Function to return the total number of possible unique BST.
+    def numTrees(self,N):
+        # code here
+        return self.nthcatalan(n,{})%(10**9+7)
+    def nthcatalan(self,n,memo):
+        if(n<=1):
+            return 1
+        ways=0
+        currentkey=n
+        if currentkey in memo:
+            return memo[currentkey]
+        for i in range(0,n):
+            ways+=self.nthcatalan(i,memo)*self.nthcatalan(n-i-1,memo)
+        memo[currentkey]=ways
+        return memo[currentkey]
