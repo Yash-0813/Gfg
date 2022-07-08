@@ -1,0 +1,6 @@
+def product(arr,n,mod):
+    # your code here
+    p = 1
+    for i in arr:
+       p = p * i
+    return p % mod
