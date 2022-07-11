@@ -1,0 +1,16 @@
+def maxPalindrome(head):
+    # Code here
+    curr=head
+    l=[]
+    while(curr!=None):
+        l.append(curr.data)
+        curr=curr.next
+    
+    length=len(l)
+    maxi=1
+    for i in range(length-1):
+        for j in range(i+1,length):
+            if(l[i:j+1]==l[i:j+1][::-1]):
+                count=j+1-i
+                maxi=max(maxi,count)
+    return maxi
