@@ -1,0 +1,14 @@
+def removeDuplicates(head):
+    #code here
+    dummynode=Node(-101)
+    dummynode.next=head
+    prev=dummynode
+    current=head
+    while current is  not None:
+        if(current.data==prev.data):
+            prev.next=current.next
+            current=current.next
+        else:
+            prev=current
+            current=current.next
+    return dummynode.next
