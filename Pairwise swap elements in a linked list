@@ -1,0 +1,16 @@
+class Solution:    
+    def pairWiseSwap(self, head):
+        # code here
+         return self.pairs(head)
+    def pairs(self,head):
+        if(head is None or head.next is None):
+            return head
+        
+        firstnode=head
+        secondnode=head.next
+        templist=self.pairs(head.next.next)
+        
+        firstnode.next=templist
+        secondnode.next=firstnode
+        
+        return secondnode
