@@ -1,0 +1,10 @@
+def compute(head): 
+    #return True/False
+    s=""
+    temp=head
+    while(temp):
+        s+=str(temp.data)
+        temp=temp.next
+    if(s==s[::-1]):
+        return True
+    return False
