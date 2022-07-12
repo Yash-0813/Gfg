@@ -1,0 +1,26 @@
+class Solution:
+    #Function to clone a linked list with next and random pointer.
+    def copyList(self, head):
+        # code here
+        dummynode=Node(-1)
+        runner=dummynode
+        
+        current=head
+        memo={}
+        
+        while(current is not None):
+            newnode=Node(current.data)
+            runner.next=newnode
+            memo[current]=newnode
+            current=current.next
+            runner=runner.next
+            
+        current=head
+        runner=dummynode.next
+        
+        while(current is not None):
+            if(current.arb is not None):
+                runner.arb=memo[current.arb]
+            runner=runner.next
+            current=current.next
+        return dummynode.next
