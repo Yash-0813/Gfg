@@ -1,0 +1,54 @@
+class Solution{
+    static long minTime(int[] arr,int n,int k){
+        //code here
+        long start = 0;
+        long end = findsum(arr,n);
+        long ans = -1;
+        
+        while(start <= end){
+            long mid = start + (end - start)/2;
+            
+            if(isPossible(arr,n,k,mid)){
+                ans = mid;
+                end = mid - 1;
+            }
+            else 
+            start = mid + 1;
+        }
+        
+        return ans;
+    }
+    
+    static long findsum(int[] A,int N){
+        long sum = 0;
+        for(int i:A){
+            sum +=i;
+        }
+        return sum;
+    }
+    
+    static boolean isPossible(int[] pages, int book, int student, long bound){
+        long currsum = 0;
+        int currstudent = 1;
+        
+        for(int currpage : pages){
+            if(currpage>bound)
+            return false;
+            
+            if(currsum + currpage <=bound)
+            currsum += currpage;
+            
+            else{
+                currstudent +=1;
+                currsum = currpage;
+                
+                if(currstudent > student)
+                return false;
+            }
+            
+        }
+        
+        return true;
+    }
+
+}
