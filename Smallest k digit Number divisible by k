@@ -1,0 +1,12 @@
+
+class Solution:
+    def smallestKDigitNum(self, X, K):
+        # code here
+        if(K==1):
+            return X
+        div=10**(K-1)
+        
+        if(div%X==0):
+            return div
+        div+=X
+        return div-(div%X)
