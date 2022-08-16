@@ -1,0 +1,14 @@
+class Solution:
+	def countTriplet(self, arr, n):
+		# code here
+		memo={}
+		for i in range(n):
+		    memo[arr[i]]=i
+		count=0
+		for i in range(n-1):
+		    for j in range(i+1,n):
+		        if(arr[i]+arr[j] in memo):
+		            count+=1
+		        else:
+		            continue
+		return count
