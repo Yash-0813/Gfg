@@ -1,0 +1,9 @@
+class Solution:
+    def consecutiveSum (self, num):
+        # code here 
+        # Equation form--  x-1+x+x+1=num
+        #                    3*x=num ===>x=num//3
+        if(num%3==0):
+            num=num//3
+            return [num-1,num,num+1]
+        return [-1]
