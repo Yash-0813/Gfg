@@ -1,0 +1,17 @@
+class Solution:
+    def minFind(self, n, a):
+        # code here
+        i = 0
+        red,green,blue=0,0,0
+        while i<n:
+            if a[i]=="R":
+                red+=1
+            elif a[i]=="G":
+                green+=1
+            elif a[i]=="B":
+                blue+=1
+            i+=1
+        if red%2==0 and green%2==0 and blue%2==0 or red%2!=0 and green%2!=0 and blue%2!=0:
+            return 2
+        else:
+            return 1
