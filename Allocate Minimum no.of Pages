@@ -35,3 +35,63 @@ class Solution:
                 if(studentcount>m):
                     return False
         return True
+
+
+
+
+
+----------------------------------------JAVA----------------------------------------------------JAVA-----------------------------------------------------------------
+
+class Solution 
+{
+    //Function to find minimum number of pages.
+    public static int findPages(int[]A,int N,int M)
+    {
+        //Your code here
+        long totalsum=0;
+        
+        for(int i:A){
+            totalsum+=i;
+        }
+        int start=0;
+        
+        int end=(int)totalsum;
+        
+        int answer=-1;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            
+            if(isPossible(A,N,M,mid)){
+                answer=mid;
+                end=mid-1;
+            }
+            else{
+                start=mid+1;
+            }
+        }
+        return answer;
+    }
+    public static boolean isPossible(int[] pages, int n, int m,int boundVal){
+        int studentcount=1;
+        int currentsum=0;
+        
+        for(int currentpages:pages){
+            if(currentpages>boundVal){
+                return false;
+            }
+            
+            if(currentpages+currentsum<=boundVal){
+                currentsum+=currentpages;
+            }
+            else{
+                studentcount+=1;
+                currentsum=currentpages;
+                
+                if(studentcount>m){
+                    return false;
+                }
+            }
+    }
+        return true;
+    }
+};
