@@ -1,0 +1,7 @@
+class Solution{
+    static double celciusToFahrenheit(int C) {
+        // code here
+        double f = (C*9)/5.0 + 32.0;
+        return f;
+    }
+}
