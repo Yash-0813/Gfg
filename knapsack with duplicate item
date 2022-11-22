@@ -1,0 +1,35 @@
+
+-------------------------------------------- USING HAshmap will give tle------------------------------------------------------------------------------------------------
+
+class Solution{
+    static int knapSack(int N, int capacity, int val[], int wt[])
+    {
+        // code here
+        return maxProfit(wt,val,0,capacity,N,new HashMap<String,Integer>());
+    }
+    
+    public int maxProfit(int[] wt,int[] val,int currentitem,int capacity,int N,HashMap<String,Integer>memo){
+        if(capacity==0){
+            return 0;
+            
+        }
+        if(currentitem==N){
+            return 0;
+        }
+        int currentitemweight=wt[currentitem];
+        int currentitemProfit=val[currentitem];
+        
+        int consider=0;
+        String currentkey=Integer.toString(currentitem)+"_"+Integer.toString(capacity);
+        if(memo.containsKey(currentkey)){
+            return memo.get(currentkey);
+        }
+        if(currentitemweight<=0){
+            consider=currentitemprofit+maxProfit(wt,val,currentitem,capacity-currentitemweight,N,memo);
+        }
+        int notconsider=maxProfit(wt,val,currentitem+1,capacity,N,memo);
+        memo.put(currentkey,Math.max(consider,notconsider));
+        return memo.get(currentkey);
+        
+    } 
+}
