@@ -1,0 +1,26 @@
+class Solution{
+    public int cutRod(int price[], int l) {
+        //code here
+        return maxProfit(0,price,l,new HashMap<String,Integer>());
+    }
+    private int maxProfit(int currentindex,int[] prices,int l,HashMap<String,Integer>memo){
+        if(l==0){
+            return 0;
+        }
+        if(currentindex>=prices.length){
+            return 0;
+        }
+        int consider=0;
+        int currentpiecelength=currentindex+1;
+        String currentkey=Integer.toString(l)+"_"+Integer.toString(currentindex);
+        if(memo.containsKey(currentkey)){
+            return memo.get(currentkey);
+        }
+        if(currentpiecelength<=l){
+            consider=prices[currentindex]+maxProfit(currentindex,prices,l-currentpiecelength,memo);
+        }
+        int notconsider=maxProfit(currentindex+1,prices,l,memo);
+        memo.put(currentkey,Math.max(consider,notconsider));
+        return memo.get(currentkey);
+    }
+}
