@@ -1,0 +1,23 @@
+class Solution {
+    
+    public List<String> AllParenthesis(int n) 
+    {
+        // Write your code here
+        List<String>ans=new ArrayList<>();
+        findallcombo(0,0,n,"",ans);
+        return ans;
+    }
+    public static void findallcombo(int open,int close,int n,String current,List<String>ans){
+        if(open==close && open==n){
+            ans.add(current);
+            return;
+        }
+        if(open<n){
+            findallcombo(open+1,close,n,current+'(',ans);
+        }
+        if(open>close){
+            findallcombo(open,close+1,n,current+')',ans);
+        }
+        return;
+    }
+}
