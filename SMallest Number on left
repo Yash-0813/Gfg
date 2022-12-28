@@ -1,0 +1,17 @@
+class Solution{
+    static List<Integer> leftSmaller(int n, int arr[])
+    {
+        //code here
+        ArrayList<Integer>nse=new ArrayList<>();
+	    Stack<Integer>stack=new Stack<>();
+	    for(int i=0;i<n;i++){
+	        int currentval=arr[i];
+	        while(!stack.isEmpty() && stack.peek()>=currentval){
+	            stack.pop();
+	        }
+	        nse.add(stack.isEmpty()?-1:stack.peek());
+	        stack.push(currentval);
+	    }
+	    return nse;
+    }
+}
