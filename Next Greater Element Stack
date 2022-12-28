@@ -13,3 +13,29 @@ class Solution:
                 nge.append(stack[-1])
             stack.append(currentval)
         return nge[::-1]
+
+
+
+
+------------------------------------------------------------- JAVA------------------------------------------------------------------------------------------------------
+
+
+class Solution
+{
+    //Function to find the next greater element for each element of the array.
+    public static long[] nextLargerElement(long[] arr, int n)
+    { 
+        // Your code here
+        long[]nge=new long[n];
+        Stack<Long>stack=new Stack<>();
+        for(int i=n-1;i>=0;i--){
+            long currentval=arr[i];
+            while(!stack.isEmpty() && stack.peek()<=currentval){
+                stack.pop();
+            }
+            nge[i]=stack.isEmpty()?-1:stack.peek();
+            stack.push(currentval);
+        }
+        return nge;
+    } 
+}
