@@ -1,0 +1,25 @@
+class Solution {
+    static String postToInfix(String postFixExpr) {
+        // code here
+        Stack<String> stack = new Stack<>();
+
+        for(int i = 0; i < postFixExpr.length(); i++){
+            Character currentChar = postFixExpr.charAt(i);
+
+            if(isOperator(currentChar)){
+                String firstVal = stack.pop();
+                String secondVal = stack.pop();
+                stack.push("(" + secondVal + currentChar + firstVal + ")");
+
+            }else{
+                stack.push(currentChar + "");
+            }
+        }
+
+        return stack.peek();
+    }   
+    private static boolean isOperator(Character currentchar){
+        return currentchar=='+' || currentchar=='-' || currentchar=='*' || currentchar=='/';
+    }
+    
+}
