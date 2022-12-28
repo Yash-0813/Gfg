@@ -1,0 +1,25 @@
+class Solution {
+    static String preToInfix(String prefixExpr) {
+        // code here
+         Stack<String> stack = new Stack<>();
+
+        for(int i = prefixExpr.length()-1; i>= 0; i--){
+            Character currentChar = prefixExpr.charAt(i);
+
+            if(isOperator(currentChar)){
+                String firstVal = stack.pop();
+                String secondVal = stack.pop();
+                stack.push('('+firstVal +   currentChar+secondVal+')');
+
+            }else{
+                stack.push(currentChar + "");
+            }
+        }
+
+        return stack.peek();
+    }
+    private static boolean isOperator(Character currentchar){
+        return currentchar=='+' || currentchar=='-' || currentchar=='*' || currentchar=='/';
+    }
+}
+
