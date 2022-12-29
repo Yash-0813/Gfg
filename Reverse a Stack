@@ -17,3 +17,40 @@ class Solution
       }
   }
 }
+---------------------------------------------------------------using no extra space-----------------------------------------------------------------------------------
+
+class Solution
+{ 
+    static void reverse(Stack<Integer> stack)
+    {
+        // add your code here
+        reversing(stack);
+        return;
+		
+	}
+	private static void insert(Stack<Integer> stack,int e)
+	{
+		if(stack.isEmpty())
+		{
+			stack.push(e);
+			return;
+		}
+		int ei=stack.pop();
+		insert(stack,e);
+		stack.push(ei);
+
+	}
+	private static void reversing(Stack<Integer>stack)
+	{
+		if(stack.isEmpty())
+		{
+			return;
+		}
+		int e=stack.pop();
+		reversing(stack);
+		insert(stack,e);
+	}
+	
+        
+    
+}
