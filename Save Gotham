@@ -1,0 +1,26 @@
+
+class Complete{
+    
+   
+    // Function for finding maximum and value pair
+    public static int save_gotham (int arr[], int n) {
+        //Complete the function
+        long[]nge=new long[n];
+        Stack<Long>stack=new Stack<>();
+        for(int i=n-1;i>=0;i--){
+            long currentval=arr[i];
+            while(!stack.isEmpty() && stack.peek()<=currentval){
+                stack.pop();
+            }
+            nge[i]=stack.isEmpty()?0:stack.peek();
+            stack.push(currentval);
+        }
+        int sum=0;
+        for(int i=0;i<nge.length;i++){
+            sum+=nge[i];
+        }
+        return sum%1000000001;
+    }
+    
+    
+}
