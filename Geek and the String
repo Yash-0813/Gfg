@@ -1,0 +1,31 @@
+class Solution {
+    public static String removePair(String s) {
+        // code here
+        Stack<Character>stack=new Stack<>();
+        stack.push(s.charAt(0));
+        for(int i=1;i<s.length();i++){
+            if(stack.isEmpty()){
+                stack.push(s.charAt(i));
+            }
+            else{
+                if(stack.peek()==s.charAt(i)){
+                    stack.pop();
+                }
+                else{
+                    stack.push(s.charAt(i));
+                }
+            }
+        }
+        String ans="";
+        while(!stack.isEmpty()){
+            ans=stack.peek()+ans;
+            stack.pop();
+        }
+        if(ans.length()==0){
+            return "Empty String";
+        }
+        else{
+            return ans;
+        }
+    }
+}
