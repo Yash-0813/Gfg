@@ -1,0 +1,27 @@
+class Solution
+{
+   
+    String reverseEqn(String S)
+    {
+        // your code here
+        String ans="";
+        Stack<String>stack=new Stack<>();
+        for(int i=0;i<S.length();i++){
+            char ch=S.charAt(i);
+            if(ch!='+' && ch!='-' && ch!='/' && ch!='*'){
+                ans+=ch;
+            }
+            else{
+                stack.push(ans);
+                stack.push(Character.toString(ch));
+                ans="";
+            }
+        }
+        stack.push(ans);
+        String res="";
+        while(!stack.isEmpty()){
+            res+=stack.pop();
+        }
+        return res;
+    }
+}
