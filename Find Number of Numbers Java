@@ -1,0 +1,21 @@
+class GfG
+{
+          public static int num(int a[], int n, int k)
+            {
+                 //Your code here
+                 int count=0;
+                 for(int i=0;i<n;i++){
+                     int val=a[i];
+                     int rem=0;
+                     
+                     while(val>0){
+                        rem=val%10;
+                        if(rem==k){
+                            count++;
+                        }
+                        val/=10;
+                     }
+                 }
+                 return count;
+            }
+}
