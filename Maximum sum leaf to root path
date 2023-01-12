@@ -1,0 +1,28 @@
+class Solution
+{
+    public static int maxPathSum(Node root)
+    {
+        //code here
+        ArrayList<Integer>list=new ArrayList<>();
+        sumofval(root,list,0);
+        int max=Integer.MIN_VALUE;
+        for(int i:list){
+            max=Math.max(max,i);
+        }
+        return max;
+    }
+    private static void  sumofval(Node root,ArrayList<Integer>list,int currentsum){
+        if(root==null){
+            return;
+        }
+        if(root.left==null && root.right==null){
+            currentsum+=root.data;
+            list.add(currentsum);
+            currentsum=0;
+            return;
+        }
+        sumofval(root.left,list,currentsum+root.data);
+        sumofval(root.right,list,currentsum+root.data);
+        return;
+    }
+}
