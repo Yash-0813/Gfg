@@ -16,3 +16,31 @@ class Solution:
         
         self.isrightSideview(root.right,level+1,memo,answer)
         self.isrightSideview(root.left,level+1,memo,answer)
+
+
+------------------------------------------------------------ USIng Arraylist without hashmap---------------------------------------------------------------------------
+
+class Solution{
+    //Function to return list containing elements of right view of binary tree.
+    ArrayList<Integer> rightView(Node root) {
+        //add code here.
+        // Your code here
+      //HashMap<Integer,Integer>memo=new HashMap<>();
+      ArrayList<Integer>answer=new ArrayList<>();
+      rightsideview(root,0,answer);
+      return answer;
+    }
+    public static void rightsideview(Node root,int currentlevel,ArrayList<Integer>answer){
+        if(root==null){
+            return;
+        }
+        if(answer.size()==currentlevel){
+            //memo.put(currentlevel,root.data);
+            answer.add(root.data);
+        }
+        rightsideview(root.right,currentlevel+1,answer);
+        rightsideview(root.left,currentlevel+1,answer);
+        
+        return;
+    }
+}
