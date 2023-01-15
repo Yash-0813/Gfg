@@ -42,3 +42,31 @@ class Tree
         return;
     }
 }
+-----------------------------------------------------USIng Arraylist only without hashmap-------------------------------------------------------------------------------------------------
+
+
+class Tree
+{
+    //Function to return list containing elements of left view of binary tree.
+    ArrayList<Integer> leftView(Node root)
+    {
+      // Your code here
+      //HashMap<Integer,Integer>memo=new HashMap<>();
+      ArrayList<Integer>answer=new ArrayList<>();
+      leftsideview(root,0,answer);
+      return answer;
+    }
+    public static void leftsideview(Node root,int currentlevel,ArrayList<Integer>answer){
+        if(root==null){
+            return;
+        }
+        if(answer.size()==currentlevel){
+            //memo.put(currentlevel,root.data);
+            answer.add(root.data);
+        }
+        leftsideview(root.left,currentlevel+1,answer);
+        leftsideview(root.right,currentlevel+1,answer);
+        
+        return;
+    }
+}
