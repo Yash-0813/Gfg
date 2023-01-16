@@ -46,3 +46,47 @@ class Solution:
             
             
         return answer
+
+
+-----------------------------------------------------------------------JAVA_----------------------------------------------------------------------------------------
+
+
+class Solution
+{
+    //Function to return the level order traversal of a tree.
+    static ArrayList <Integer> levelOrder(Node root) 
+    {
+        // Your code here
+        // Steps:-
+        // 1-insert an elemt 
+        // 2-remove an element from queue
+        // 3-add element in answer
+        // 4-iterate to its left and right child
+        ArrayList<Integer>answer=new ArrayList<>();
+        Queue<Node>queue=new LinkedList<>();
+        
+        //adding first element in  queue for starting while loop
+        queue.add(root);
+        
+        //Starrting bfs
+        
+        while(!queue.isEmpty()){
+            // remove element
+            
+            Node currentNode=queue.poll();
+            
+            //adding elemet in answer list
+            answer.add(currentNode.data);
+            
+            //iterating
+            if(currentNode.left!=null){
+                queue.add(currentNode.left);
+            }
+            if(currentNode.right!=null){
+                queue.add(currentNode.right);
+            }
+        }
+        return answer;
+        
+    }
+}
