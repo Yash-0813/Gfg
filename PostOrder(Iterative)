@@ -1,0 +1,25 @@
+class Tree {
+    ArrayList<Integer> postOrder(Node root) {
+        // code here
+      ArrayList<Integer>answer=new ArrayList<>();
+      Stack<Node>stack=new Stack<>();
+      if(root==null){
+          return answer;
+      }
+      stack.push(root);
+      while(!stack.isEmpty()){
+          Node currentNode=stack.pop();
+          answer.add(currentNode.data);
+          if(currentNode.left!=null){
+              stack.push(currentNode.left);
+          }
+          
+          if(currentNode.right!=null){
+              stack.push(currentNode.right);
+          }
+          
+        }   
+        Collections.reverse(answer);
+        return answer;
+    }
+}
