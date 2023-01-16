@@ -1,0 +1,36 @@
+class Solution
+{
+    // Return a list containing the inorder traversal of the given tree
+    ArrayList<Integer> inOrder(Node root)
+    {
+        // Code
+        Stack<Node>stack=new Stack<>();
+        ArrayList<Integer>answer=new ArrayList<>();
+
+        if(root==null){
+            return answer;
+        }
+
+        addleftpathsubtree(root,stack);
+
+        while(!stack.isEmpty()){
+            Node currentNode=stack.pop();
+            answer.add(currentNode.data);
+
+
+            if(currentNode.right!=null){
+                addleftpathsubtree(currentNode.right,stack);
+            }
+        }
+        return answer;
+    }
+    private void addleftpathsubtree(Node currentNode,Stack<Node>stack){
+        stack.push(currentNode);
+        while(currentNode.left!=null){
+            stack.push(currentNode.left);
+            currentNode=currentNode.left;
+        }
+    }
+    
+    
+}
