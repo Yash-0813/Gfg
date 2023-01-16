@@ -1,0 +1,46 @@
+class Level_Order_Traverse
+{
+    //Function to return the level order traversal line by line of a tree.
+    static ArrayList<ArrayList<Integer>> levelOrder(Node root) 
+    {
+        // Your code here
+        ArrayList<ArrayList<Integer>>answer=new ArrayList<>();
+        Queue<Node>queue=new LinkedList<>();
+
+        if(root==null){
+            return answer;
+        }
+
+        //add something
+        queue.add(root);
+
+        //rstarting bfs
+        while(!queue.isEmpty()){
+
+            //find the size pf queue will tell us no.of node at particular level
+            int currentSize=queue.size();
+
+            //process these operation(remove,do something,process children)currentsize times
+            ArrayList<Integer>currentLevel=new ArrayList<>();
+
+            while(currentSize>0){
+                Node currentNode=queue.poll();
+                currentLevel.add(currentNode.data);
+
+                //process children
+
+                if(currentNode.left!=null){
+                    queue.add(currentNode.left);
+                }
+
+                if(currentNode.right!=null){
+                    queue.add(currentNode.right);
+                }
+                currentSize-=1;
+            }
+            answer.add(currentLevel);
+
+        }
+        return answer;
+    }
+}
