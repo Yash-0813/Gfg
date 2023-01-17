@@ -1,0 +1,27 @@
+class Solution {
+int gcd(int a, int b)
+{
+    if(b==0)return a;
+    else
+    return gcd(b,Math.abs(a-b));
+}
+    void helper(Node root,int [] ans){
+        if(root==null || (root.left==null && root.right==null))return;
+        helper(root.left,ans);
+        helper(root.right,ans);
+        int data1= (root.left!=null)?root.left.data:-1; 
+        int data2= (root.right!=null)?root.right.data:-1;
+        if(data1!=-1 && data2!=-1){
+            int gcd = gcd(data1,data2);
+            if(gcd>ans[0]){
+                ans[0]=gcd;
+                ans[1]=root.data;
+            }
+        }
+    }
+    int maxGCD(Node root) {
+        int ans[] = {-1,0};
+        helper(root,ans);
+        return ans[1];
+    }
+}
