@@ -1,0 +1,19 @@
+
+class Solution {
+    static Long[] lcmAndGcd(Long A , Long B) {
+        // code here
+        
+        Long []arr=new Long[2];
+        Long gcd=gcd(A,B);
+        Long lcm=(A*B)/gcd;
+        arr[0]=lcm;
+        arr[1]=gcd;
+        return arr;
+    }
+    private static long gcd(Long A,Long B){
+        if(A==0){
+            return B;
+        }
+        return gcd(B,Math.abs(A-B));
+    }
+}
