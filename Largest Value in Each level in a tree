@@ -1,0 +1,33 @@
+class Solution
+{
+    public ArrayList<Integer> largestValues(Node root)
+    {
+        //code here
+        Queue<Node>queue=new LinkedList<>();
+        ArrayList<Integer>answer=new ArrayList<>();
+
+        queue.add(root);
+        while(!queue.isEmpty()){
+
+            int currentlevel=queue.size();
+            int max=0;
+
+            while(currentlevel>0){
+                Node currentNode=queue.remove();
+                max=Math.max(max,currentNode.data);
+
+                if(currentNode.left!=null){
+                    queue.add(currentNode.left);
+                }
+
+                if(currentNode.right!=null){
+                    queue.add(currentNode.right);
+                }
+                currentlevel-=1;
+
+            }
+            answer.add(max);
+        }
+        return answer;
+    }
+}
