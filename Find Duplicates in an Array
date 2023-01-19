@@ -1,0 +1,19 @@
+class Solution {
+    public static ArrayList<Integer> duplicates(int nums[], int n) {
+        // code here
+        HashMap<Integer,Integer>memo=new HashMap<>();
+        ArrayList<Integer>ans=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            memo.put(nums[i],memo.getOrDefault(nums[i],0)+1);
+        }
+        for(int i : memo.keySet()){
+            if(memo.get(i)>1) ans.add(i);
+        }
+        if(ans.size()==0){
+            ans.add(-1);
+            return ans;
+        }
+        Collections.sort(ans);
+        return ans;
+    }
+}
