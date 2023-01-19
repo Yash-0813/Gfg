@@ -1,0 +1,23 @@
+class Solution{
+    public boolean isPerfect(Node root){
+        //code here
+        return height(root)!=-1;
+    }
+    private static int height(Node root){
+        if(root==null){
+            return 0;
+        }
+        int leftsubtreeheight=height(root.left);
+        if(leftsubtreeheight==-1){
+            return -1;
+        }
+        int rightsubtreeheight=height(root.right);
+        if(rightsubtreeheight==-1){
+            return -1;
+        }
+        if(Math.abs(rightsubtreeheight-leftsubtreeheight)>=1){
+            return -1;
+        }
+        return Math.max(leftsubtreeheight,rightsubtreeheight)+1;
+    }
+}
