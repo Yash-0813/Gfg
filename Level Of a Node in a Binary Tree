@@ -1,0 +1,36 @@
+class Solution
+{
+    /* Returns level of given data value */
+    int getLevel(Node root, int data)  
+    { 
+        // Write your code here
+        Queue<Node>queue=new LinkedList<>();
+        queue.add(root);
+        int level=1;
+        while(!queue.isEmpty()){
+            int currentlevel=queue.size();
+            
+            while(currentlevel>0){
+                Node currentNode=queue.remove();
+                if(currentNode.data==data){
+                    return level;
+                }
+                
+                if(currentNode.left!=null){
+                    queue.add(currentNode.left);
+                }
+                
+                if(currentNode.right!=null){
+                    queue.add(currentNode.right);
+                }
+                
+                currentlevel-=1;
+            }
+            level++;
+            
+            
+        }
+        return 0;
+    } 
+
+}
