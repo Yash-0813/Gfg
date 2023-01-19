@@ -1,0 +1,23 @@
+class Solution{
+    boolean flag = true;
+	boolean isSumTree(Node root){
+	    check(root);
+        return flag;
+	}
+	
+	int check(Node root){
+	    if(root==null)
+	        return 0;
+	        
+	    if(root.left==null && root.right==null)
+	        return root.data;
+	        
+	    int leftSum = check(root.left);
+	    int rightSum = check(root.right);
+	    
+	    if(leftSum+rightSum != root.data)
+	        flag=false;
+	    
+	    return leftSum+rightSum+root.data;     
+	}
+}
