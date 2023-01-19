@@ -1,0 +1,33 @@
+class Solution {
+    public int maxLevelSum(Node root) {
+        // add code here.
+        Queue<Node>queue=new LinkedList<>();
+        ArrayList<Integer>ans=new ArrayList<>();
+        queue.add(root);
+        int maxval=Integer.MIN_VALUE;
+        while(!queue.isEmpty()){
+            int sumofallnodes=0;
+            int currentlevel=queue.size();
+                while(currentlevel>0){
+                    Node currentNode=queue.remove();
+                    sumofallnodes+=currentNode.data;
+                    
+                    if(currentNode.left!=null){
+                        queue.add(currentNode.left);
+                    }
+                    
+                    if(currentNode.right!=null){
+                        queue.add(currentNode.right);
+                    }
+                    currentlevel-=1;
+                }
+                ans.add(sumofallnodes);
+              
+            }
+            for(int i:ans){
+                maxval=Math.max(maxval,i);
+            }
+            return maxval;
+            
+    }
+}
