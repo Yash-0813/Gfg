@@ -1,0 +1,35 @@
+class Solution
+{
+    boolean check(Node root)
+    {
+	// Your code here
+	Queue<Node>queue=new LinkedList<>();
+	ArrayList<Integer>ans=new ArrayList<>();
+	queue.add(root);
+	int level=0;
+	while(!queue.isEmpty()){
+	    int currentlevel=queue.size();
+	    level+=1;
+	    
+	    while(currentlevel-->0){
+	        Node currentNode=queue.remove();
+	        
+	        if(currentNode.left==null && currentNode.right==null){
+	            ans.add(level);
+	        }
+	        
+	        if(currentNode.left!=null){
+	            queue.add(currentNode.left);
+	        }
+	        
+	        if(currentNode.right!=null){
+	            queue.add(currentNode.right);
+	        }
+	    }
+	}
+	if(ans.size()>0){
+	    return ans.get(0)==ans.get(ans.size()-1);
+	}
+	return false;
+    }
+}
