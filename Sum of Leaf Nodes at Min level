@@ -1,0 +1,32 @@
+class Solution{
+     public int minLeafSum(Node root){
+        //code here
+        Queue<Node>queue=new LinkedList<>();
+        int sum=0;
+        // add somehing to start the queue
+        queue.add(root);
+        while(!queue.isEmpty()){
+            int currentlevel=queue.size();
+            while(currentlevel-->0){
+                // remove element from queue
+                Node currentNode=queue.remove();
+                
+                if(currentNode.left==null && currentNode.right==null){
+                    sum+=currentNode.data;
+                }
+                
+                if(currentNode.left!=null){
+                    queue.add(currentNode.left);
+                }
+                if(currentNode.right!=null){
+                    queue.add(currentNode.right);
+                }
+            }
+            if(sum!=0){
+                return sum;
+            }
+            
+        }
+        return sum;
+    }
+}
