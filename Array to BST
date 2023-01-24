@@ -50,3 +50,59 @@ class Solution
         return;
     }
 }
+
+
+---------------------------------------------------------- COnstructing BST-----------------------------------------------------------------------------------------
+
+
+class TreeNode{
+    int val;
+    TreeNode left;
+    TreeNode right;
+    
+    TreeNode(int val,TreeNode Left,TreeNode right){
+        this.val=val;
+        this.left=left;
+        this.right=right;
+    }
+}
+class Solution
+{
+    public int[] sortedArrayToBST(int[] nums)
+    {
+        // Code here 
+        TreeNode root = arraytoBST(nums,0,nums.length - 1);
+        ArrayList<Integer> al = new ArrayList<>();
+        preorder(root,al);
+        int[] ans = new int[nums.length];
+        int j=0;
+        for(int i:al){
+            ans[j] = i;
+            j++;
+        }
+        return ans;
+    }
+    
+    public static TreeNode arraytoBST(int[] nums,int start,int end){
+        if(start>end)
+            return null;
+        
+        int mid = start + (end-start)/2;
+        
+        TreeNode node = new TreeNode(nums[mid],null,null);
+        node.left = arraytoBST(nums,start,mid-1);
+        node.right = arraytoBST(nums,mid+1,end);
+        
+        return node;
+    }
+    
+    public static void preorder(TreeNode node,ArrayList<Integer> al){
+        if(node == null)
+            return;
+        
+        al.add(node.val);
+        preorder(node.left,al);
+        preorder(node.right,al);
+        
+    }
+}
