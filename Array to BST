@@ -10,3 +10,43 @@ class Solution:
         self.arraytoBST(nums,left, mid - 1,temp)
         self.arraytoBST(nums,mid + 1, right,temp)
         return temp
+
+
+
+--------------------------------------------------------------------------jAVA_-----------------------------------------------------------------------------------------
+
+
+class TreeNode{
+    int val;
+    TreeNode left;
+    TreeNode right;
+    
+    TreeNode(int val,TreeNode left,TreeNode right){
+        this.val=val;
+        this.left=left;
+        this.right=right;
+    }
+}
+class Solution
+{   
+    int c=0;
+    public int[] sortedArrayToBST(int[] nums)
+    {
+        // Code here 
+        int[]preorder=new int[nums.length];
+        ArraytoBST(nums,0,nums.length-1,preorder);
+        return preorder;
+    }
+    private void ArraytoBST(int[]nums,int start,int end,int[]preorder){
+        if(start>end){
+            return;
+        }
+        int mid=start+(end-start)/2;
+        preorder[c++]=nums[mid];
+        
+        ArraytoBST(nums,start,mid-1,preorder);
+        ArraytoBST(nums,mid+1,end,preorder);
+        
+        return;
+    }
+}
