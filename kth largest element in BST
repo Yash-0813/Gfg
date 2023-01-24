@@ -21,3 +21,34 @@ class Solution
         return;
     }
 }
+
+
+---------------------------------------------------------TC-O(n) and SC=O(1)-------------------------------------------------------------------------------------------
+
+
+class Solution
+{
+    //TC-O(n)
+    //SC=O(1)
+    int count=0;
+    int result=Integer.MIN_VALUE;
+    // return the Kth largest element in the given BST rooted at 'root'
+    public int kthLargest(Node root,int k)
+    {
+        //Your code here
+        findsum(root,k);
+        return result;
+    } 
+    
+    public void findsum(Node root,int k){
+        if(root == null)
+        return ;
+        
+        findsum(root.right,k);
+        count++;
+        if(count == k){
+            result=root.data;
+        }
+        findsum(root.left,k);
+    }
+}
