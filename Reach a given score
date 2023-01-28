@@ -1,0 +1,30 @@
+class Geeks {
+    public long count(int n) {
+        int[] arr = {3,5,10};
+        
+        long[][] dp = new long[4][n+1];
+        for(long[] a:dp)
+            Arrays.fill(a,-1);
+        
+        return mincount(arr,0,3,n,dp);
+    }
+    public long mincount(int[] arr,int curr,int n,int target,long[][] dp){
+        if(target == 0)
+            return 1;
+            
+        if(curr>=n)
+            return 0;
+        
+        if(dp[curr][target] != -1)
+            return dp[curr][target];
+        
+        long include = 0;
+        if(target>=arr[curr])
+            include = mincount(arr,curr,n,target-arr[curr],dp);
+            
+        long noinclude = mincount(arr,curr+1,n,target,dp);
+        
+        return dp[curr][target]=include + noinclude;
+        
+    }
+}
