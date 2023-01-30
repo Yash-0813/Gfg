@@ -33,3 +33,51 @@ class Solution {
         return false;
     }
 }
+
+
+
+----------------------------------------------------------------BY Kahn's Algorithm-----------------------------------------------------------------------------------
+
+class Solution {
+    // by Kahn's Algorithm
+    // Function to detect cycle in a directed graph.
+    public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+        // code here
+        int[] indegree=new int[V];
+        Queue<Integer>queue=new LinkedList<>();
+        boolean[] visited= new boolean[V];
+        int visitedVertices=0;
+        for(int i=0;i<V;i++){
+            for(int currentNeigh:adj.get(i)){
+                indegree[currentNeigh]+=1;
+            }
+        }
+        
+        for(int i=0;i<V;i++){
+            if(indegree[i]==0){
+                queue.add(i);
+            }
+        }
+        
+        while(!queue.isEmpty()){
+            int currentVertex=queue.remove();
+            
+            if(visited[currentVertex]){
+                continue;
+            }
+            
+            visited[currentVertex]=true;
+            visitedVertices+=1;
+            
+            for(int currentNeigh:adj.get(currentVertex)){
+                indegree[currentNeigh]-=1;
+                
+                if(indegree[currentNeigh]==0){
+                    queue.add(currentNeigh);
+                }
+            }
+            
+        }
+        return !(visitedVertices==V);
+    }
+}
