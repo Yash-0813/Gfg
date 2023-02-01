@@ -1,0 +1,38 @@
+class Solution
+{
+    public void shortest_distance(int[][] matrix)
+    {
+        // Code here 
+        int v = matrix.length;
+        int[][] cost = new int[v][v];
+        
+        for(int i=0;i<v;i++){
+            for(int j=0;j<v;j++){
+                if(matrix[i][j]==-1){
+                    cost[i][j]=Integer.MAX_VALUE;
+                }
+                else
+                cost[i][j] = matrix[i][j];
+            }
+        }
+        
+        for(int helper =0;helper<v ; helper++){
+            for(int src =0; src<v; src++){
+                for(int dest=0; dest<v; dest++){
+                    if(cost[src][helper]!=Integer.MAX_VALUE && cost[helper][dest]!=Integer.MAX_VALUE){
+                        cost[src][dest]= Math.min(cost[src][dest],cost[src][helper]+ cost[helper][dest]);
+                    }
+                }
+            }
+        }
+        for(int i=0;i<v;i++){
+            for(int j=0;j<v;j++){
+                if(cost[i][j]==Integer.MAX_VALUE)
+                matrix[i][j]=-1;
+                else
+                matrix[i][j]= cost[i][j];
+            }
+        }
+        return;
+    }
+}
