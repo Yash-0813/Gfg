@@ -1,0 +1,51 @@
+class subTreeInfo{
+    int size;
+    int max;
+    int min;
+    boolean isBST;
+    
+    subTreeInfo(int size,int max,int min,boolean isBST){
+        this.size = size;
+        this.max = max;
+        this.min = min;
+        this.isBST = isBST;
+    }
+    
+    subTreeInfo(int size,boolean isBST){
+        this.size = size;
+        this.isBST = isBST;
+    }
+}
+class Solution{
+    
+    // Return the size of the largest sub-tree which is also a BST
+    static int largestBst(Node root)
+    {
+        // Write your code here
+        
+        return findlargestBST(root).size;
+    }
+    
+    static subTreeInfo findlargestBST(Node root){
+        if(root == null){
+            return new subTreeInfo(0,0,100000000,true);
+        }
+        
+        if(root.left == null && root.right == null){
+            return new subTreeInfo(1,root.data,root.data,true);
+        }
+        
+        subTreeInfo leftAns = findlargestBST(root.left);
+        subTreeInfo rightAns = findlargestBST(root.right);
+        
+        if(leftAns.isBST && rightAns.isBST && leftAns.max < root.data && rightAns.min > root.data){
+            return new subTreeInfo(leftAns.size + rightAns.size + 1,Math.max(Math.max(leftAns.max,rightAns.max),root.data),Math.min(root.data,
+            Math.min(leftAns.min,rightAns.min)),true);
+        }
+        else{
+            return new subTreeInfo(Math.max(leftAns.size,rightAns.size),false);
+        }
+        
+    }
+    
+}
