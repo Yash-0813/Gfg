@@ -1,0 +1,38 @@
+class Solution
+{
+    public boolean isBipartite(int n, ArrayList<ArrayList<Integer>>graph)
+    {
+        // Code here
+        
+        //Making a color array to mark color 0 and 1 to represent which element is present on which subset
+        int[] color = new int[n];
+        Arrays.fill(color,-1);
+        
+        for(int currvertex=0; currvertex<n; currvertex++){ //running a loop to check for each vertex of graph
+            
+            if(color[currvertex]!=-1)              
+                continue;
+            
+            if(!hasEvenCycle(graph,currvertex,0,color)) //this function checks whether each elemenent is on right subset
+                return false;
+        }
+        
+        return true;
+    }
+    private boolean hasEvenCycle(ArrayList<ArrayList<Integer>> graph ,int currvertex, int currcolor , int[] color){
+        if(color[currvertex]!=-1)
+            return color[currvertex]==currcolor;
+        
+        color[currvertex] = currcolor;
+        
+        for(int currneigh : graph.get(currvertex)){
+            
+            if(!hasEvenCycle(graph,currneigh , 1-currcolor,color))
+                return false;
+        }
+        
+        return true;
+        
+    }
+    
+}
