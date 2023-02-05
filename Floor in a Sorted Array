@@ -7,3 +7,38 @@
            else:
                c=i
         return c
+
+
+-------------------------------------------------------------JAVA-------------------------------------------------------------------------------------------------------
+
+
+class Solution{
+    
+    // Function to find floor of x
+    // arr: input array
+    // n is the size of array
+    static int findFloor(long nums[], int n, long x)
+    {
+        int floorindex=-1;
+        int start=0;
+        int end=n-1;
+        
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            
+            if(nums[mid]==x){
+                return mid;
+            }
+            else if(nums[mid]<x){
+                floorindex=mid;
+                start=mid+1;
+            }
+            else{
+                end=mid-1;
+            }
+        }
+        return floorindex;
+        
+    }
+    
+}
