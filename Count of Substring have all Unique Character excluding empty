@@ -1,0 +1,30 @@
+class GfG
+{
+   public static int countDistinctSubstring(String st)
+   {
+       //your code here
+       HashMap<Character,Integer>memo=new HashMap<>();
+       
+      int answer=0;
+      int release=0;
+      
+      for(int accquire=0;accquire<st.length();accquire++){
+          Character currentChar=st.charAt(accquire);
+          
+          while(release<accquire && memo.containsKey(currentChar)){
+              Character discard=st.charAt(release);
+              memo.put(discard,memo.get(discard)-1);
+              
+              if(memo.get(discard)==0){
+                  memo.remove(discard);
+              }
+              release+=1;
+          }
+          memo.put(currentChar,1);
+          answer+=accquire-release+1;
+          
+      }
+      return answer;
+
+   }
+}
