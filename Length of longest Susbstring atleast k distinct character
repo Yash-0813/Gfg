@@ -1,0 +1,41 @@
+public long kDistinctCharacters(String s, int k) {
+        int n=s.length();
+        return n*(n+1)/2 - countOfSubstring(s,k-1);
+    }
+
+    private int countOfSubstring(String s,int k){
+
+        int ans=0;
+        int distinct=0;
+        int release =0;
+
+        HashMap<Character,Integer> hm = new HashMap<>();
+
+        for(int acquire=0;acquire<s.length();acquire++){
+            char curr=s.charAt(acquire);
+
+            if (hm.containsKey(curr)){
+                hm.put(curr,hm.get(curr)+1);
+            }
+
+            else{
+                hm.put(curr,1);
+                distinct+=1;
+            }
+
+            while(acquire>=release && distinct>k){
+                char discard=s.charAt(release);
+                release+=1;
+
+                hm.put(discard,hm.get(discard)-1);
+
+                if(hm.get(discard)==0){
+                    hm.remove(discard);
+                    distinct-=1;
+                }
+            }
+            ans+=acquire-release+1;
+        }
+        return ans;
+
+    }
