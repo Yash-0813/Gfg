@@ -1,0 +1,34 @@
+public static int solution(String str, int k) {
+    // write your code here
+    HashMap<Character,Integer> hm = new HashMap<>();
+    int ans=0;
+    int distinct=0;
+    int release=0;
+
+    for(int acquire=0;acquire<s.length();acquire++){
+        char curr=s.charAt(acquire);
+
+        if(hm.containsKey(curr)){
+            hm.put(curr,hm.get(curr)+1);
+        }
+        else{
+            hm.put(curr,1);
+            distinct+=1;
+        }
+
+        while(release<=acquire && distinct>k){
+            char discard=s.charAt(release);
+            release+=1;
+
+            hm.put(discard,hm.get(discard)-1);
+
+            if(hm.get(discard)==0){
+                hm.remove(discard);
+                discard-=1;
+            }
+        }
+        ans+=acquire-release+1;
+    }
+
+    return ans;
+  }
