@@ -1,0 +1,29 @@
+
+class Solution{
+    
+   
+    // Function for finding maximum and value pair
+    public static int lenOfLongSubarr (int nums[], int N, int k) {
+        //Complete the function
+        int answer=0;
+        int prefixSum=0;
+
+        HashMap<Integer,Integer>memo=new HashMap<>();
+        memo.put(prefixSum,-1);
+
+        for(int i=0;i<N;i++){
+            prefixSum+=nums[i];
+
+            if(memo.containsKey(prefixSum-k)){
+                answer=Math.max(answer,i-memo.get(prefixSum-k));
+            }
+
+            if(!memo.containsKey(prefixSum)){
+                memo.put(prefixSum,i);
+            }
+        }
+        return answer;
+    }
+    
+    
+}
