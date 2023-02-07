@@ -1,0 +1,17 @@
+class Solution
+{
+    public boolean findPair(int nums[], int size, int n)
+    {
+        //code here.
+        HashMap<Integer,Integer>memo=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int complement=n+nums[i];
+
+            if(memo.containsKey(complement) || memo.containsKey(nums[i]-n)){
+                return true;
+            }
+            memo.put(nums[i],i);
+        }
+        return false;
+    }
+}
