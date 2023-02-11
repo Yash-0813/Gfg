@@ -1,0 +1,21 @@
+class Solution {
+    // Function to return the diameter of a Binary Tree.
+    int diameter(Node root) {
+        // Your code here
+        int[] diam = new int[1];
+        
+        finddiameter(root,diam);
+        return diam[0];
+    }
+    
+    int finddiameter(Node root,int[] diam){
+        if(root == null)
+        return 0;
+        
+        int leftheight = finddiameter(root.left,diam);
+        int rightheight = finddiameter(root.right,diam);
+        
+        diam[0] = Math.max(leftheight+rightheight+1,diam[0]);
+        return 1 + Math.max(leftheight,rightheight);
+    }
+}
