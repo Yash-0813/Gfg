@@ -1,0 +1,51 @@
+class Pair{
+    int slope;
+    Node node;
+    
+    Pair(int slope,Node node){
+        this.slope = slope;
+        this.node = node;
+    }
+}
+
+class Tree
+{
+     public ArrayList<Integer> diagonal(Node root)
+      {
+           //add your code here.
+           ArrayList<Integer> ans = new ArrayList<>();
+        
+        HashMap<Integer,ArrayList<Integer>> hm = new HashMap<>();
+
+        int[] maxslope={Integer.MIN_VALUE};
+        
+        diagnolView(root,0,hm,maxslope);
+        
+        for(int i=0;i<=maxslope[0];i++){
+            for(int currval: hm.get(i)){
+                ans.add(currval);
+            }
+        }
+        return ans;
+      }
+      
+      public static void diagnolView(Node root,int slope,HashMap<Integer,ArrayList<Integer>> hm,int[] maxslope){
+            if(root==null)
+            return;
+            maxslope[0]=Math.max(maxslope[0],slope);
+            
+            if(hm.containsKey(slope)){
+                hm.get(slope).add(root.data);
+            }
+            else{
+                ArrayList<Integer> current = new ArrayList<>();
+                current.add(root.data);
+                hm.put(slope,current);   
+            }
+            
+            diagnolView(root.left,slope+1,hm,maxslope);
+            diagnolView(root.right,slope,hm,maxslope);
+            
+            return;
+      }
+}
