@@ -1,0 +1,30 @@
+class Solution {
+    public List<String> find_permutation(String S) {
+        // Code here
+        List<String>answer=new ArrayList<>();
+        HashSet<String>set=new HashSet<>();
+        printanswer(S,"",answer,set);
+        Collections.sort(answer);
+        return answer;
+    }
+
+    public static void printanswer(String ques,String ans, List<String>answer,HashSet<String>set){
+        if(ques.length()==0){
+            if(!set.contains(ans)){
+                answer.add(ans);
+                set.add(ans);
+            }
+            return;
+        }
+
+        
+
+        
+        for(int i=0;i<ques.length();i++){
+            char ch=ques.charAt(i);
+            String s1=ques.substring(0,i);
+            String s2=ques.substring(i+1);
+            printanswer(s1+s2,ans+ch,answer,set);
+        }
+    }
+}
