@@ -1,0 +1,27 @@
+class GfG
+{
+    Node flatten(Node root)
+    {
+	// Your code here
+	ArrayList<Integer>list=new ArrayList<>();
+	Node curr=root;
+	while(curr!=null){
+	    Node temp=curr;
+	    while(temp!=null){
+	        list.add(temp.data);
+	        temp=temp.bottom;
+	    }
+	    curr=curr.next;
+	}
+	Collections.sort(list);
+	Node dummyNode=new Node(0);
+	Node res=dummyNode;
+	for(int i = 0;i < list.size();i++){
+          Node temp = new Node(list.get(i));
+          res.bottom = temp;
+          res = res.bottom;
+      }
+      res.bottom=null;
+      return dummyNode.bottom;
+    }
+}
