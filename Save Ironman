@@ -1,0 +1,33 @@
+class Complete{
+    
+   
+    // Function for finding maximum and value pair
+    public static boolean saveIronman (String s) {
+        //Complete the function
+        boolean ans=true;
+
+        String str="";
+
+        str=s.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
+
+        int n=str.length();
+
+        int i=0,j=n-1;
+
+        while(i<j){
+
+            if (str.charAt(i)!=str.charAt(j)){
+
+                ans=false;
+
+            }
+
+            i++;j--;
+
+        }
+
+        return ans;
+    }
+    
+    
+}
