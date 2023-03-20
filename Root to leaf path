@@ -1,0 +1,50 @@
+class Tree{
+
+    public ArrayList<ArrayList<Integer>> Paths(Node root){
+
+        // Code here
+
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+
+        if(root == null){
+
+            return new ArrayList<>();
+
+        }
+
+        helper(ans,root,new ArrayList());
+
+        return ans;
+
+    }
+
+    public void helper(ArrayList<ArrayList<Integer>> ans, Node root, ArrayList<Integer> curr){
+
+        curr.add(root.data);
+
+        if(root.left == null && root.right == null){
+
+            ans.add(new ArrayList(curr));
+
+            curr.remove(curr.size()-1);
+
+            return ;
+
+        }
+
+        if(root.left!=null){
+
+            helper(ans,root.left,curr);
+
+        }
+
+        if(root.right!=null){
+
+            helper(ans,root.right,curr);
+
+        }
+
+        curr.remove(curr.size()-1);
+    }
+
+}
