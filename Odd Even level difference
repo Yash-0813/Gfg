@@ -1,0 +1,38 @@
+class Solution
+{
+	int getLevelDiff(Node root)
+	{
+	    //code here
+	    int oddsum=0;
+	    int evensum=0;
+	    Queue<Node>queue=new LinkedList<>();
+	    queue.add(root);
+	    int level=1;
+	    while(!queue.isEmpty()){
+	        int size=queue.size();
+	        
+	        while(size-->0){
+	            Node currentNode=queue.remove();
+	            
+	            if(level%2!=0){
+	                oddsum+=currentNode.data;
+	            }
+	            else{
+	                evensum+=currentNode.data;
+	            }
+	            
+	            if(currentNode.left!=null){
+	                queue.add(currentNode.left);
+	            }
+	            if(currentNode.right!=null){
+	                queue.add(currentNode.right);
+	            }
+	            
+	            
+	        }
+	        level++;
+	    }
+	    
+	    return oddsum-evensum;
+	}
+}
