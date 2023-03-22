@@ -1,0 +1,57 @@
+class Pair implements Comparable<Pair>{
+    int vertex;
+    int cost;
+    Pair(int vertex,int cost ){
+        this.vertex=vertex;
+        this.cost=cost;
+    }
+    
+    public int compareTo(Pair p){
+        return this.cost-p.cost;
+    }
+}
+class Solution{
+  int spanningTree(int V, int E, int edges[][]){
+      // Code Here. 
+      ArrayList<ArrayList<Pair>> adj=new ArrayList<>();
+        
+        for(int i=0;i<V;i++){
+            adj.add(new ArrayList<Pair>());
+        }
+        for(int i=0;i<edges.length;i++){
+            adj.get(edges[i][0]).add(new Pair(edges[i][1],edges[i][2]));
+            adj.get(edges[i][1]).add(new Pair(edges[i][0],edges[i][2]));
+        }
+        
+        int mincost = 0;
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+        pq.add(new Pair(0,0));
+        boolean[] visited = new boolean[V];
+        
+        while(!pq.isEmpty()){
+          Pair currentPair = pq.remove();
+          int currentVertex = currentPair.vertex;
+          int currentCost = currentPair.cost;
+          
+          if(visited[currentVertex]){
+              continue;
+          }
+          
+          visited[currentVertex] = true;
+          mincost += currentCost;
+          
+          for(Pair currneigh : adj.get(currentVertex)){
+              int neighVertex = currneigh.vertex;
+              int currentEdgeCost = currneigh.cost; 
+              
+              if(visited[neighVertex]){
+                  continue;
+              }
+              
+              pq.add(new Pair(neighVertex,currentEdgeCost));
+          }
+      }
+      
+      return mincost;
+  }
+}
