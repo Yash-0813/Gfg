@@ -1,0 +1,38 @@
+
+class Solution
+{
+    public int possible_paths(int[][] edges, int n, int s, int d)
+    {
+        // Code here 
+        ArrayList<ArrayList<Integer>>graph=Constructgraph(n,edges);
+        return dfs(graph,s,d);
+    }
+    
+    private static int dfs( ArrayList<ArrayList<Integer>>graph,int src,int dest){
+        
+        if(src==dest){
+            return 1;
+        }
+        int count=0;
+        for(int nbrs:graph.get(src)){
+            count+=dfs(graph,nbrs,dest);
+        }
+        
+        return count;
+    }
+    
+    private ArrayList<ArrayList<Integer>>Constructgraph(int n,int[][]edges){
+        ArrayList<ArrayList<Integer>>graph=new ArrayList<>();
+        
+        for(int i=0;i<n;i++){
+            graph.add(new ArrayList<>());
+        }
+        for(int[]currentEdge:edges){
+            int a=currentEdge[0];
+            int b=currentEdge[1];
+            graph.get(a).add(b);
+        }
+        
+        return graph;
+    }
+}
