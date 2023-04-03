@@ -1,0 +1,43 @@
+class Solution
+{
+    //Function to find the number of 'X' total shapes.
+    public int xShape(char[][] grid)
+    {
+        // code here
+        int count=0;
+        int m=grid.length;
+        int n=grid[0].length;
+        
+        boolean[][] visited=new boolean[m][n];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]=='X'){
+                    count++;
+                    findshapes(grid,i,j,m,n);
+                }
+            }
+        }
+        return count;
+    }
+        
+        
+        public static void findshapes(char[][]grid,int currentRow,int currentCol,int m,int n){
+            if(currentRow<0 || currentRow>=m || currentCol<0 || currentCol>=n || grid[currentRow][currentCol]=='O'){
+            return;
+        }
+
+        grid[currentRow][currentCol]='O';
+
+        findshapes(grid,currentRow-1,currentCol,m,n);// Up call
+
+        findshapes(grid,currentRow+1,currentCol,m,n);// down call
+
+        findshapes(grid,currentRow,currentCol-1,m,n);// left call
+
+        findshapes(grid,currentRow,currentCol+1,m,n);// right call
+
+        return;
+            
+        }
+    
+}
